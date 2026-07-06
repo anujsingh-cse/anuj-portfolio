@@ -26,7 +26,7 @@ export default function Skills() {
         {skillCategories.map((cat: { label: string; value: string }) => (
           <button
             key={cat.value}
-            onClick={() => setActiveCategory(cat.value)}
+            onClick={() => setActiveCategory(cat.value as SkillCategory)}
             className={`rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 ${
               activeCategory === cat.value
                 ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-blue-500/25"
