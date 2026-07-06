@@ -39,8 +39,6 @@ export const projects: Project[] = [
     createdAt: "2024-01-15T00:00:00Z",
     updatedAt: "2024-03-20T00:00:00Z",
     gridSpan: "col-span-2",
-    metricValue: "10K+",
-    metricLabel: "Active Citizens",
   },
   {
     id: "2",
@@ -70,8 +68,6 @@ export const projects: Project[] = [
     createdAt: "2023-08-10T00:00:00Z",
     updatedAt: "2023-11-05T00:00:00Z",
     gridSpan: "col-span-1",
-    metricValue: "2.5M",
-    metricLabel: "Events Processed Daily",
   },
   {
     id: "3",
@@ -101,8 +97,6 @@ export const projects: Project[] = [
     createdAt: "2023-12-01T00:00:00Z",
     updatedAt: "2024-02-15T00:00:00Z",
     gridSpan: "col-span-1",
-    metricValue: "450+",
-    metricLabel: "GitHub Stars",
   },
   {
     id: "4",
@@ -130,8 +124,6 @@ export const projects: Project[] = [
     createdAt: "2023-05-20T00:00:00Z",
     updatedAt: "2023-09-10T00:00:00Z",
     gridSpan: "col-span-2",
-    metricValue: "$1.2K",
-    metricLabel: "Monthly Recurring Revenue",
   }
 ];
 

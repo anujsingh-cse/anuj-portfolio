@@ -22,8 +22,6 @@ export interface Project {
   
   // Bento Grid specific fields
   gridSpan?: "col-span-1" | "col-span-2" | "col-span-3";
-  metricValue?: string;
-  metricLabel?: string;
 }
 
 export type ProjectCategory =

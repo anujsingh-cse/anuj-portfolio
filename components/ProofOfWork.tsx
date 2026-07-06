@@ -52,18 +52,6 @@ export default function ProofOfWork() {
                   </p>
                 </div>
                 
-                {/* Metric Badge */}
-                {project.metricValue && (
-                  <div className="flex shrink-0 flex-col items-end rounded-xl border border-white/10 bg-white/5 p-3 backdrop-blur-md transition-colors group-hover:border-green-500/30 group-hover:bg-green-500/10">
-                    <div className="flex items-center gap-1.5 text-xl font-black text-white group-hover:text-green-400">
-                      <TrendingUp className="h-4 w-4" />
-                      {project.metricValue}
-                    </div>
-                    <span className="mt-1 text-[10px] font-medium uppercase tracking-wider text-zinc-500 group-hover:text-green-500/80">
-                      {project.metricLabel}
-                    </span>
-                  </div>
-                )}
               </div>
 
               {/* Tech Stack */}
