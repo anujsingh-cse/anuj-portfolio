@@ -8,10 +8,21 @@ export default function ScrollToTop() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    // Prevent browser from restoring scroll position on refresh
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+    // Ensure we start at the top
+    window.scrollTo(0, 0);
+
     function onScroll() {
       setVisible(window.scrollY > 400);
     }
     window.addEventListener("scroll", onScroll, { passive: true });
+    
+    // Initial check
+    onScroll();
+
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
