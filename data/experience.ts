@@ -16,34 +16,6 @@ export const experience: Experience[] = [
     ],
   },
   {
-    id: "2",
-    type: "work",
-    title: "Full Stack Engineer",
-    organization: "TechNova Solutions",
-    description: "Built scalable enterprise web applications and analytics pipelines.",
-    startDate: "2022-06",
-    endDate: "2023-12",
-    highlights: [
-      "Migrated legacy React monolith to Next.js App Router and TypeScript → eliminated 35% of production runtime bugs → accelerated feature delivery velocity by 1.5x.",
-      "Built real-time data ingestion pipeline using Go and Kafka for 2.5M daily events → cut infrastructure costs by 60% → enabled marketing team to run real-time conversion tests.",
-      "Mentored a team of 3 junior developers through weekly pair programming sessions → successfully shipped 4 major dashboard features 2 weeks ahead of schedule."
-    ],
-  },
-  {
-    id: "3",
-    type: "work",
-    title: "Software Engineer Intern",
-    organization: "Innovate AI",
-    description: "Developed internal tooling and machine learning data pipelines.",
-    startDate: "2021-05",
-    endDate: "2021-08",
-    highlights: [
-      "Automated PDF data extraction using Python and AWS Textract → processed 50,000+ legacy invoices → saved accounting department $15K in manual labor costs.",
-      "Developed an internal React dashboard to visualize ML model drift → surfaced 3 critical anomalies in production data → prevented a major client-facing outage.",
-      "Implemented a CI/CD pipeline using GitHub Actions for the data team → reduced model deployment time from 2 hours to 15 minutes."
-    ],
-  },
-  {
     id: "4",
     type: "education",
     title: "BE CSE",
