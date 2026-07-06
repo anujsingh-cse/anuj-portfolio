@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Mail, Heart } from "lucide-react";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { socialLinks } from "@/data/social";
@@ -11,14 +14,16 @@ const socialIcons: Record<string, React.ElementType> = {
 };
 
 const footerLinks = [
-  { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
+  { href: "/#about", label: "About" },
+  { href: "/#projects", label: "Projects" },
   { href: "/blog", label: "Blog" },
-  { href: "#experience", label: "Experience" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#experience", label: "Experience" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
+
   return (
     <footer className="border-t border-white/5">
       {/* Gradient divider */}
@@ -49,15 +54,21 @@ export default function Footer() {
               Navigation
             </h4>
             <nav className="flex flex-col gap-2" aria-label="Footer navigation">
-              {footerLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm text-zinc-400 transition-colors hover:text-white"
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {footerLinks.map((link) => {
+                const isHashLink = link.href.startsWith("/#");
+                const useNativeAnchor = isHashLink && pathname !== "/";
+                const LinkComponent = useNativeAnchor ? "a" : Link;
+
+                return (
+                  <LinkComponent
+                    key={link.href}
+                    href={link.href}
+                    className="text-sm text-zinc-400 transition-colors hover:text-white"
+                  >
+                    {link.label}
+                  </LinkComponent>
+                );
+              })}
             </nav>
           </div>
 

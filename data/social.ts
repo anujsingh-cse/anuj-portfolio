@@ -8,7 +8,7 @@ export const socialLinks: SocialLink[] = [
   },
   {
     name: "LinkedIn",
-    url: "#",
+    url: "https://www.linkedin.com/in/anuj-singh-4b462641a/",
     icon: "linkedin",
   },
   {

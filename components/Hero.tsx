@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import MagneticButton from "@/components/MagneticButton";
 import { trackEvent } from "@/lib/analytics";
 import { personal } from "@/data/personal";
+import Terminal from "./Terminal";
 
 const container: Variants = {
   hidden: { opacity: 0 },
@@ -39,13 +40,15 @@ export default function Hero() {
       className="relative flex min-h-screen flex-col items-center justify-center px-6 pt-20"
       aria-label="Introduction"
     >
-      <motion.div
-        variants={container}
-        initial="hidden"
-        animate="visible"
-        className="mx-auto w-full max-w-5xl text-center"
-      >
-        {/* Status Badge */}
+      <div className="mx-auto w-full max-w-7xl">
+        <div className="grid grid-cols-1 gap-12 items-center lg:grid-cols-2 lg:gap-8">
+          <motion.div
+            variants={container}
+            initial="hidden"
+            animate="visible"
+            className="flex w-full flex-col items-center text-center lg:items-start lg:text-left"
+          >
+            {/* Status Badge */}
         <motion.div variants={item} className="mb-8">
           <span className="inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-4 py-2 text-xs font-medium tracking-wide text-green-400 backdrop-blur-sm">
             <span className="relative flex h-2 w-2">
@@ -59,6 +62,7 @@ export default function Hero() {
         {/* Main Heading */}
         <motion.h1 variants={item} className="heading-xl mt-4">
           Hi, I&apos;m{" "}
+          <br className="hidden lg:block" />
           <span className="gradient-text">Anuj Singh</span>
         </motion.h1>
 
@@ -86,7 +90,7 @@ export default function Hero() {
         </motion.div>
 
         {/* Description */}
-        <motion.p variants={item} className="body-lg mx-auto mt-6 max-w-2xl text-zinc-400">
+        <motion.p variants={item} className="body-lg mt-6 max-w-xl text-zinc-400">
           I architect scalable SaaS applications and intelligent LLM automation platforms.
           Focused on shipping high-impact features that drive measurable business outcomes.
         </motion.p>
@@ -94,7 +98,7 @@ export default function Hero() {
         {/* CTA Buttons - Two Button Strategy */}
         <motion.div
           variants={item}
-          className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+          className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start"
         >
           <MagneticButton>
             <Button
@@ -139,10 +143,22 @@ export default function Hero() {
             </Button>
           </MagneticButton>
         </motion.div>
+      </motion.div>
 
-        {/* Social Proof Marquee */}
-        <motion.div variants={item} className="mt-24 w-full overflow-hidden border-y border-white/5 bg-white/[0.02] py-8">
-          <div className="flex w-fit animate-marquee items-center gap-16 whitespace-nowrap px-8 text-sm font-medium text-zinc-500">
+      {/* Terminal - Right Side */}
+      <div className="hidden w-full lg:block">
+        <Terminal />
+      </div>
+    </div>
+
+    {/* Social Proof Marquee */}
+    <motion.div
+      variants={container}
+      initial="hidden"
+      animate="visible"
+      className="mt-24 w-full overflow-hidden border-y border-white/5 bg-white/[0.02] py-8"
+    >
+      <div className="flex w-fit animate-marquee items-center gap-16 whitespace-nowrap px-8 text-sm font-medium text-zinc-500">
             {/* Duplicated for infinite scroll effect */}
             {[1, 2].map((group) => (
               <div key={group} className="flex items-center gap-16">
@@ -176,8 +192,7 @@ export default function Hero() {
             ))}
           </div>
         </motion.div>
-
-      </motion.div>
+      </div>
     </section>
   );
 }

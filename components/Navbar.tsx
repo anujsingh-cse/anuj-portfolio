@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -11,15 +12,16 @@ import { Menu, Search, Command, Briefcase } from "lucide-react";
 import type { NavItem } from "@/types";
 
 const navItems: NavItem[] = [
-  { href: "#about", label: "About" },
-  { href: "#proof-of-work", label: "Work" },
-  { href: "#skills", label: "Skills" },
+  { href: "/#about", label: "About" },
+  { href: "/#proof-of-work", label: "Work" },
+  { href: "/#skills", label: "Skills" },
   { href: "/blog", label: "Blog" },
-  { href: "#experience", label: "Timeline" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#experience", label: "Timeline" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { isRecruiterMode, toggleRecruiterMode } = useRecruiterMode();
@@ -61,16 +63,22 @@ export default function Navbar() {
 
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-1 md:flex" aria-label="Main navigation">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="relative px-3 py-2 text-sm text-zinc-400 transition-colors duration-300 hover:text-white"
-            >
-              {item.label}
-              <span className="absolute bottom-0 left-1/2 h-px w-0 -translate-x-1/2 bg-gradient-to-r from-cyan-400 to-blue-500 transition-all duration-300 group-hover:w-full" />
-            </Link>
-          ))}
+          {navItems.map((item) => {
+            const isHashLink = item.href.startsWith("/#");
+            const useNativeAnchor = isHashLink && pathname !== "/";
+            const LinkComponent = useNativeAnchor ? "a" : Link;
+
+            return (
+              <LinkComponent
+                key={item.href}
+                href={item.href}
+                className="relative px-3 py-2 text-sm text-zinc-400 transition-colors duration-300 hover:text-white group"
+              >
+                {item.label}
+                <span className="absolute bottom-0 left-1/2 h-px w-0 -translate-x-1/2 bg-gradient-to-r from-cyan-400 to-blue-500 transition-all duration-300 group-hover:w-full" />
+              </LinkComponent>
+            );
+          })}
         </nav>
 
         {/* Right Side */}
@@ -122,22 +130,28 @@ export default function Navbar() {
             </SheetTrigger>
             <SheetContent side="right" className="w-80 border-white/5 bg-[var(--color-bg-secondary)]">
               <nav className="mt-8 flex flex-col gap-1" aria-label="Mobile navigation">
-                {navItems.map((item, i) => (
-                  <motion.div
-                    key={item.href}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.05 }}
-                  >
-                    <Link
-                      href={item.href}
-                      onClick={() => setMobileOpen(false)}
-                      className="block rounded-lg px-4 py-3 text-lg font-medium text-zinc-300 transition-colors hover:bg-white/5 hover:text-white"
+                {navItems.map((item, i) => {
+                  const isHashLink = item.href.startsWith("/#");
+                  const useNativeAnchor = isHashLink && pathname !== "/";
+                  const LinkComponent = useNativeAnchor ? "a" : Link;
+
+                  return (
+                    <motion.div
+                      key={item.href}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.05 }}
                     >
-                      {item.label}
-                    </Link>
-                  </motion.div>
-                ))}
+                      <LinkComponent
+                        href={item.href}
+                        onClick={() => setMobileOpen(false)}
+                        className="block rounded-lg px-4 py-3 text-lg font-medium text-zinc-300 transition-colors hover:bg-white/5 hover:text-white"
+                      >
+                        {item.label}
+                      </LinkComponent>
+                    </motion.div>
+                  );
+                })}
                 <div className="mt-4 border-t border-white/5 pt-4">
                   <Button asChild className="w-full">
                     <a href="/resume.pdf" download>
