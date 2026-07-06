@@ -20,7 +20,7 @@ export const projects: Project[] = [
       "Secure citizen data vault with end-to-end encryption",
     ],
     githubUrl: "https://github.com/anujsingh-cse/yojanasetu",
-    liveUrl: "https://yojanasetu.vercel.app",
+    liveUrl: "https://yojana-setu-beta.vercel.app",
     featured: true,
     category: "ai",
     problem: "Citizens struggle to understand complex eligibility criteria for government schemes, leading to a 60% rejection rate due to incorrect documentation.",
