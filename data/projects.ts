@@ -88,7 +88,7 @@ export const projects: Project[] = [
       "Tone-matched automated responses to contributors",
     ],
     githubUrl: "https://github.com/anujsingh-cse/devrel-agent",
-    liveUrl: "https://devrel-agent.vercel.app",
+    liveUrl: "https://devrel-agent-two.vercel.app",
     featured: true,
     category: "open-source",
     problem: "Maintainers of popular open-source repositories spend over 15 hours a week just triaging issues and fixing minor typos.",
