@@ -111,7 +111,7 @@ export default function Navbar() {
           <ThemeToggle />
 
           <Button asChild size="sm" className="hidden sm:inline-flex">
-            <a href="/resume.pdf" download>
+            <a href="/resume.html" target="_blank" rel="noopener noreferrer">
               Resume
             </a>
           </Button>
@@ -154,8 +154,8 @@ export default function Navbar() {
                 })}
                 <div className="mt-4 border-t border-white/5 pt-4">
                   <Button asChild className="w-full">
-                    <a href="/resume.pdf" download>
-                      Download Resume
+                    <a href="/resume.html" target="_blank" rel="noopener noreferrer">
+                      View Resume
                     </a>
                   </Button>
                 </div>

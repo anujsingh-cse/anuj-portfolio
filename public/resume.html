@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anuj Singh — AI Engineer & Full-Stack Developer Resume</title>
+  <meta name="description" content="ATS-optimized resume for Anuj Singh — AI Engineer, Full-Stack Developer, and Startup Builder." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ======================================================
+       ATS-COMPATIBLE RESUME — ANUJ SINGH
+       Clean semantic HTML. ATS parsers read headings, lists,
+       and plain text. No tables, no columns via CSS Grid,
+       no images, no icons — just pure parseable structure.
+       Print-to-PDF at A4 for a pixel-perfect single page.
+    ====================================================== */
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #fdfdfd;
+      --text: #1a1a1a;
+      --text-secondary: #4a4a4a;
+      --text-muted: #6b6b6b;
+      --accent: #1a56db;
+      --accent-light: #e8eefb;
+      --border: #d4d4d8;
+      --border-light: #e8e8ec;
+      --section-gap: 14px;
+      --font: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    html {
+      font-size: 10px;
+    }
+
+    body {
+      font-family: var(--font);
+      font-size: 1rem;
+      line-height: 1.5;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ---- PAGE CONTAINER ---- */
+    .resume {
+      width: 210mm;
+      min-height: 297mm;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 28px 36px 20px;
+      background: white;
+    }
+
+    /* ---- HEADER ---- */
+    .header {
+      text-align: center;
+      padding-bottom: 12px;
+      border-bottom: 2.5px solid var(--accent);
+      margin-bottom: var(--section-gap);
+    }
+
+    .header h1 {
+      font-size: 2.6rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    .header .subtitle {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 3px;
+      letter-spacing: 0.04em;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px 18px;
+      margin-top: 8px;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    .contact-row a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .contact-row a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-row .sep {
+      color: var(--border);
+      user-select: none;
+    }
+
+    /* ---- SECTION ---- */
+    .section {
+      margin-bottom: var(--section-gap);
+    }
+
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      border-bottom: 1.5px solid var(--border-light);
+      padding-bottom: 3px;
+      margin-bottom: 8px;
+    }
+
+    /* ---- SUMMARY ---- */
+    .summary p {
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--text-secondary);
+    }
+
+    /* ---- TWO-COL LAYOUT (for screen beauty, ATS still reads linearly) ---- */
+    .two-col {
+      display: flex;
+      gap: 32px;
+    }
+
+    .col-main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .col-side {
+      width: 200px;
+      flex-shrink: 0;
+    }
+
+    /* ---- EXPERIENCE / EDUCATION ENTRIES ---- */
+    .entry {
+      margin-bottom: 12px;
+    }
+
+    .entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .entry-title {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .entry-org {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .entry-date {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .entry-meta {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 1px;
+    }
+
+    .entry ul {
+      margin-top: 4px;
+      padding-left: 18px;
+    }
+
+    .entry li {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      margin-bottom: 2px;
+    }
+
+    .entry li strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* ---- PROJECTS ---- */
+    .project {
+      margin-bottom: 10px;
+    }
+
+    .project:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .project-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .project-links {
+      font-size: 0.85rem;
+      display: flex;
+      gap: 10px;
+    }
+
+    .project-links a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+
+    .project-tech {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 1px;
+    }
+
+    .project ul {
+      margin-top: 3px;
+      padding-left: 18px;
+    }
+
+    .project li {
+      font-size: 0.93rem;
+      line-height: 1.45;
+      color: var(--text-secondary);
+      margin-bottom: 1px;
+    }
+
+    /* ---- SKILLS ---- */
+    .skills-grid {
+      display: grid;
+      gap: 6px;
+    }
+
+    .skill-row {
+      display: flex;
+      gap: 6px;
+      align-items: baseline;
+    }
+
+    .skill-label {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      white-space: nowrap;
+      min-width: 80px;
+    }
+
+    .skill-value {
+      font-size: 0.93rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+
+    /* ---- SIDEBAR ITEMS ---- */
+    .side-section {
+      margin-bottom: 14px;
+    }
+
+    .side-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .side-title {
+      font-size: 1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      border-bottom: 1.5px solid var(--border-light);
+      padding-bottom: 3px;
+      margin-bottom: 6px;
+    }
+
+    .side-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .side-section li {
+      font-size: 0.93rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: 2px;
+      padding-left: 10px;
+      position: relative;
+    }
+
+    .side-section li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 2px 8px;
+      border-radius: 4px;
+      line-height: 1.5;
+    }
+
+    /* ---- CERTIFICATIONS / ACHIEVEMENTS ---- */
+    .achievements li {
+      padding-left: 10px;
+    }
+
+    /* ---- PRINT STYLES ---- */
+    @media print {
+      html {
+        font-size: 10px;
+      }
+
+      body {
+        background: white;
+      }
+
+      .resume {
+        padding: 16px 28px 14px;
+        width: 100%;
+        min-height: auto;
+        box-shadow: none;
+      }
+
+      .header {
+        padding-bottom: 8px;
+        margin-bottom: 10px;
+      }
+
+      .section {
+        margin-bottom: 10px;
+      }
+
+      a {
+        color: var(--accent) !important;
+        text-decoration: none !important;
+      }
+
+      .no-print {
+        display: none !important;
+      }
+    }
+
+    /* ---- SCREEN ONLY: Add subtle shadow for preview ---- */
+    @media screen {
+      body {
+        background: #f0f0f2;
+        padding: 24px 0;
+      }
+
+      .resume {
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
+        border-radius: 4px;
+      }
+
+      /* Download button */
+      .download-bar {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 100;
+      }
+
+      .download-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 24px;
+        background: var(--accent);
+        color: white;
+        font-family: var(--font);
+        font-size: 1.4rem;
+        font-weight: 700;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        box-shadow: 0 8px 24px rgba(26, 86, 219, 0.35);
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .download-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 32px rgba(26, 86, 219, 0.45);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Download helper (screen only) -->
+  <div class="download-bar no-print">
+    <button class="download-btn" onclick="window.print()">
+      ↓ Save as PDF
+    </button>
+  </div>
+
+  <div class="resume">
+    <!-- ==================== HEADER ==================== -->
+    <header class="header">
+      <h1>Anuj Singh</h1>
+      <p class="subtitle">AI Engineer &amp; Full-Stack Developer | Startup Builder</p>
+      <div class="contact-row">
+        <span>Mohali, Punjab, India</span>
+        <span class="sep">|</span>
+        <a href="mailto:justchilldude686@gmail.com">justchilldude686@gmail.com</a>
+        <span class="sep">|</span>
+        <a href="https://github.com/anujsingh-cse" target="_blank" rel="noopener">github.com/anujsingh-cse</a>
+        <span class="sep">|</span>
+        <a href="https://www.linkedin.com/in/anuj-singh-4b462641a/" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="sep">|</span>
+        <a href="https://cal.com/anuj-singh-cse/15min" target="_blank" rel="noopener">cal.com/anuj-singh-cse</a>
+      </div>
+    </header>
+
+    <!-- ==================== SUMMARY ==================== -->
+    <section class="section summary">
+      <h2 class="section-title">Professional Summary</h2>
+      <p>
+        Full-Stack AI Engineer with hands-on experience shipping production-grade LLM applications, SaaS platforms, and AI automation products. 
+        Architected RAG pipelines for document processing, built real-time event analytics systems, and launched a revenue-generating B2B SaaS. 
+        Core strengths in React, Next.js, TypeScript, Python, and cloud-native AI systems. Seeking high-impact engineering roles where I can drive measurable product outcomes from day one.
+      </p>
+    </section>
+
+    <!-- ==================== MAIN 2-COLUMN ==================== -->
+    <div class="two-col">
+
+      <!-- ========= LEFT (Main Content) ========= -->
+      <div class="col-main">
+
+        <!-- EXPERIENCE -->
+        <section class="section">
+          <h2 class="section-title">Experience</h2>
+
+          <div class="entry">
+            <div class="entry-header">
+              <span class="entry-title">Data Scientist — <span class="entry-org">V.EDU'S PRIVATE LIMITED</span></span>
+              <span class="entry-date">Jan 2025 – Oct 2025</span>
+            </div>
+            <p class="entry-meta">Full-time · Remote | Python, RAG, Data Science</p>
+            <ul>
+              <li>Worked on data science and machine learning projects leveraging <strong>Python</strong> and <strong>Retrieval-Augmented Generation (RAG)</strong> pipelines.</li>
+              <li>Applied ML models and data-driven approaches to solve business problems in an ed-tech environment.</li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <span class="entry-title">Freelance Software Developer — <span class="entry-org">Upwork</span></span>
+              <span class="entry-date">2025</span>
+            </div>
+            <p class="entry-meta">Remote | Python, Automation</p>
+            <ul>
+              <li>Built custom <strong>automation scripts</strong> for small business clients using Python, streamlining repetitive workflows and manual processes.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="section">
+          <h2 class="section-title">Technical Projects</h2>
+
+          <div class="project">
+            <div class="project-header">
+              <span class="project-title">YojanaSetu — AI-Powered GovTech Platform</span>
+              <span class="project-links">
+                <a href="https://github.com/anujsingh-cse/yojanasetu" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://yojana-setu-beta.vercel.app" target="_blank" rel="noopener">Live</a>
+              </span>
+            </div>
+            <p class="project-tech">Next.js, React, TypeScript, Python, FastAPI, OpenAI API, LangChain, Pinecone, PostgreSQL, AWS</p>
+            <ul>
+              <li>Architected a <strong>RAG-based eligibility engine</strong> using LangChain + Pinecone to automate government document processing and citizen eligibility verification.</li>
+              <li>Engineered a <strong>multi-lingual voice agent</strong> integrating OpenAI Whisper and local LLMs to serve users across 12 regional languages, including non-literate populations.</li>
+              <li>Optimized Next.js frontend performance and PostgreSQL database queries to improve API response times and mobile user experience.</li>
+            </ul>
+          </div>
+
+          <div class="project">
+            <div class="project-header">
+              <span class="project-title">Nexus Analytics — Real-Time Event Analytics Pipeline</span>
+              <span class="project-links">
+                <a href="https://github.com/anujsingh-cse/nexus-analytics" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://nexus-analytics.vercel.app" target="_blank" rel="noopener">Live</a>
+              </span>
+            </div>
+            <p class="project-tech">Go, React, ClickHouse, Kafka, Redis, Docker</p>
+            <ul>
+              <li>Designed a high-throughput real-time analytics pipeline using Go microservices, Kafka event streaming, and ClickHouse materialized views for fast OLAP queries.</li>
+              <li>Built real-time WebSocket dashboard with complex funnel analysis, offering a cost-effective alternative to third-party analytics solutions.</li>
+            </ul>
+          </div>
+
+          <div class="project">
+            <div class="project-header">
+              <span class="project-title">AutoInvoice OCR — B2B SaaS Invoice Extraction</span>
+              <span class="project-links">
+                <a href="https://github.com/anujsingh-cse/autoinvoice-ocr" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://autoinvoice-ocr.vercel.app" target="_blank" rel="noopener">Live</a>
+              </span>
+            </div>
+            <p class="project-tech">Python, AWS Textract, Next.js, Stripe, Supabase</p>
+            <ul>
+              <li>Built a micro-SaaS extracting structured JSON from scanned invoice PDFs by combining OCR (Tesseract/AWS Textract) with LLM-based layout parsing for high accuracy on non-standard formats.</li>
+              <li>Integrated Stripe payments, direct ERP API integration, and a human-in-the-loop confidence-scoring review UI.</li>
+            </ul>
+          </div>
+
+          <div class="project">
+            <div class="project-header">
+              <span class="project-title">DevRel GitHub Agent — Open-Source AI Maintainer</span>
+              <span class="project-links">
+                <a href="https://github.com/anujsingh-cse/devrel-agent" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://devrel-agent-two.vercel.app" target="_blank" rel="noopener">Live</a>
+              </span>
+            </div>
+            <p class="project-tech">TypeScript, Probot, OpenAI API, GitHub Actions</p>
+            <ul>
+              <li>Created an autonomous GitHub App using Probot that triages incoming issues via semantic analysis, auto-labels them, and drafts pull requests for simple bug fixes (typos, dependency updates, basic logic errors).</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section class="section">
+          <h2 class="section-title">Education</h2>
+          <div class="entry">
+            <div class="entry-header">
+              <span class="entry-title">BE, Computer Science &amp; Engineering — <span class="entry-org">Chandigarh University</span></span>
+              <span class="entry-date">Oct 2022 – May 2026</span>
+            </div>
+            <ul>
+              <li>Published research paper on <strong>"Efficient LLM Fine-Tuning"</strong>.</li>
+
+              <li>Developed university's official student portal serving the active student body.</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      <!-- ========= RIGHT (Sidebar) ========= -->
+      <div class="col-side">
+
+        <!-- TECHNICAL SKILLS -->
+        <div class="side-section">
+          <h3 class="side-title">Skills</h3>
+          <div class="skills-grid">
+            <div class="skill-row">
+              <span class="skill-label">Frontend</span>
+              <span class="skill-value">React, Next.js, TypeScript, Tailwind CSS, Framer Motion</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-label">Backend</span>
+              <span class="skill-value">Node.js, Python, FastAPI, Go, PostgreSQL, Redis</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-label">AI / ML</span>
+              <span class="skill-value">OpenAI API, LangChain, LangGraph, RAG, Pinecone, PyTorch, Whisper</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-label">DevOps</span>
+              <span class="skill-value">AWS, Docker, Vercel, CI/CD, GitHub Actions</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-label">Tools</span>
+              <span class="skill-value">Git, Figma, Stripe, Supabase, Kafka, ClickHouse</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CURRENT FOCUS -->
+        <div class="side-section">
+          <h3 class="side-title">Focus Areas</h3>
+          <ul>
+            <li>AI Agents & Multi-Agent Systems</li>
+            <li>RAG & Vector Databases</li>
+            <li>LLM Application Dev</li>
+            <li>Full-Stack SaaS Architecture</li>
+            <li>Cloud-Native Deployment</li>
+          </ul>
+        </div>
+
+        <!-- ATS KEYWORD CLOUD (visible to parsers, visually clean) -->
+        <div class="side-section">
+          <h3 class="side-title">Keywords</h3>
+          <div class="tag-cloud">
+            <span class="tag">React</span>
+            <span class="tag">Next.js</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Python</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">Go</span>
+            <span class="tag">LLM</span>
+            <span class="tag">RAG</span>
+            <span class="tag">LangChain</span>
+            <span class="tag">OpenAI</span>
+            <span class="tag">AWS</span>
+            <span class="tag">Docker</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">CI/CD</span>
+            <span class="tag">Kafka</span>
+            <span class="tag">Redis</span>
+            <span class="tag">SaaS</span>
+            <span class="tag">Startup</span>
+            <span class="tag">Agile</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

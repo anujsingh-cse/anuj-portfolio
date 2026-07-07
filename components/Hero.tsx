@@ -2,7 +2,7 @@
 
 import { motion, Variants } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
-import { ArrowRight, Download, Calendar, Briefcase, Users, Zap, Building2, Code2 } from "lucide-react";
+import { ArrowRight, Download, Calendar, Briefcase, Users, Zap, Building2, Code2, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import MagneticButton from "@/components/MagneticButton";
 import { trackEvent } from "@/lib/analytics";
@@ -121,9 +121,9 @@ export default function Hero() {
               onClick={handleResumeDownload}
               className="w-full gap-2 rounded-xl border-white/10 bg-white/5 px-8 backdrop-blur transition-all hover:border-cyan-500/50 hover:bg-white/10 hover:text-cyan-400 sm:w-auto"
             >
-              <a href="/resume.pdf" download>
-                <Download className="h-4 w-4" />
-                Download Resume
+              <a href="/resume.html" target="_blank" rel="noopener noreferrer">
+                <FileText className="h-4 w-4" />
+                View Resume
               </a>
             </Button>
           </MagneticButton>
