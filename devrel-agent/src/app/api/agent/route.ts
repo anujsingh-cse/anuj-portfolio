@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import { Octokit } from "@octokit/rest";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import OpenAI from "openai";
 
 export async function POST(req: NextRequest) {
   const { url } = await req.json();
@@ -30,13 +30,18 @@ export async function POST(req: NextRequest) {
         const [, owner, repo, issueNumber] = match;
 
         sendLog("info", `Parsed URL: Owner=${owner}, Repo=${repo}, Issue=${issueNumber}`);
-        sendLog("action", "Initializing GitHub Octokit & Gemini client...");
-
-        const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
-        const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
+        sendLog("action", "Initializing GitHub Octokit & GitHub Models client...");
 
         if (!process.env.GITHUB_TOKEN) throw new Error("GITHUB_TOKEN is missing in environment variables.");
-        if (!process.env.GEMINI_API_KEY) throw new Error("GEMINI_API_KEY is missing in environment variables.");
+
+        const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
+        
+        // We use the OpenAI SDK but point it to GitHub Models!
+        // This is 100% free for GitHub users and uses your existing GITHUB_TOKEN!
+        const ai = new OpenAI({
+          baseURL: "https://models.inference.ai.azure.com",
+          apiKey: process.env.GITHUB_TOKEN
+        });
 
         sendLog("info", "Fetching issue details from GitHub...");
         const { data: issue } = await octokit.rest.issues.get({
@@ -46,14 +51,44 @@ export async function POST(req: NextRequest) {
         });
 
         sendLog("success", `Issue fetched: "${issue.title}"`);
-        sendLog("action", "Analyzing semantic intent of issue body via Gemini...");
-
-        const model = genAI.getGenerativeModel({ model: "gemini-flash-latest", generationConfig: { responseMimeType: "application/json" } });
-
-        const prompt = `You are an AI maintainer. The user reported an issue:\nTitle: ${issue.title}\nBody: ${issue.body}\n\nDetermine the intent (e.g. TYPO_CORRECTION) and which file they are likely referring to. Respond in JSON format strictly matching this schema: { "intent": "string", "confidence": number, "file_path": "string", "instructions": "string" }`;
         
-        const completion = await model.generateContent(prompt);
-        const analysis = JSON.parse(completion.response.text() || "{}");
+        sendLog("info", "Fetching repository file tree...");
+        const { data: upstreamRepoData } = await octokit.rest.repos.get({ owner, repo });
+        const { data: treeData } = await octokit.rest.git.getTree({
+          owner, repo, tree_sha: upstreamRepoData.default_branch, recursive: "true"
+        });
+        
+        let files = treeData.tree
+          .filter((t: any) => t.type === 'blob')
+          .map((t: any) => t.path)
+          .filter((path: string) => !path.match(/\.(png|jpg|jpeg|gif|svg|ico|mp4|webp|lock|csv|jsonl|pdf|ttf|woff|woff2)$/i))
+          .filter((path: string) => !path.includes("node_modules/") && !path.includes("vendor/") && !path.includes("dist/") && !path.includes("build/") && !path.includes(".next/"));
+        
+        // GitHub Models free tier has an 8k token limit (~30k characters)
+        let filesString = files.join('\n');
+        if (filesString.length > 25000) {
+            filesString = filesString.substring(0, 25000) + "\n... (list truncated to fit limits)";
+        }
+
+        sendLog("success", `Filtered down to ${files.length} relevant files for context.`);
+
+        sendLog("action", "Analyzing semantic intent of issue body via GPT-4o-mini...");
+
+        const prompt = `You are an AI maintainer. The user reported an issue:\nTitle: ${issue.title}\nBody: ${issue.body}\n\nDetermine the intent (e.g. TYPO_CORRECTION) and which file they are likely referring to.\n\nHere is a list of all files in the repository:\n${filesString}\n\nYou MUST select a file_path that exactly matches one of the paths in the provided repository tree.\n\nRespond in JSON format strictly matching this schema: { "intent": "string", "confidence": number, "file_path": "string", "instructions": "string" }. CRITICAL: Escape any quotation marks inside strings.`;
+        
+        const completion = await ai.chat.completions.create({
+          model: "gpt-4o-mini",
+          response_format: { type: "json_object" },
+          messages: [
+            { role: "system", content: "You are an AI maintainer. Respond only with valid JSON." },
+            { role: "user", content: prompt }
+          ]
+        });
+        
+        let rawText = completion.choices[0].message.content || "{}";
+        // Clean up markdown code blocks if present
+        rawText = rawText.replace(/```json/gi, '').replace(/```/g, '').trim();
+        const analysis = JSON.parse(rawText);
         
         sendLog("success", `Intent identified: ${analysis.intent} (confidence: ${Math.round(analysis.confidence * 100)}%)`);
 
@@ -77,11 +112,17 @@ export async function POST(req: NextRequest) {
         sendLog("success", `File ${analysis.file_path} loaded successfully.`);
         sendLog("action", "Generating AST transformations and applying fixes...");
 
-        const fixModel = genAI.getGenerativeModel({ model: "gemini-flash-latest" });
         const fixPrompt = `You are fixing code. Based on these instructions: "${analysis.instructions}", modify the following file content. Output ONLY the raw modified file content, with no markdown code blocks, no explanations.\n\nFile:\n${fileContent}`;
         
-        const fixCompletion = await fixModel.generateContent(fixPrompt);
-        let newContent = fixCompletion.response.text() || "";
+        const fixCompletion = await ai.chat.completions.create({
+          model: "gpt-4o-mini",
+          messages: [
+            { role: "system", content: "You are an expert developer fixing a bug. Return ONLY the raw modified file content, no markdown, no explanations." },
+            { role: "user", content: fixPrompt }
+          ]
+        });
+        
+        let newContent = fixCompletion.choices[0].message.content || "";
         
         if (newContent.startsWith("\`\`\`")) {
             const lines = newContent.split('\n');
@@ -95,20 +136,33 @@ export async function POST(req: NextRequest) {
 
         const branchName = `fix/issue-${issueNumber}-${Date.now()}`;
         
-        const { data: repoData } = await octokit.rest.repos.get({ owner, repo });
+        const { data: user } = await octokit.rest.users.getAuthenticated();
+        const username = user.login;
+        let targetOwner = owner;
+
+        if (owner !== username) {
+          sendLog("action", `Forking repository to ${username}...`);
+          await octokit.rest.repos.createFork({ owner, repo });
+          targetOwner = username;
+          
+          sendLog("info", "Waiting 5 seconds for GitHub to create the fork...");
+          await new Promise(resolve => setTimeout(resolve, 5000));
+        }
+        
+        const { data: repoData } = await octokit.rest.repos.get({ owner: targetOwner, repo });
         const defaultBranch = repoData.default_branch;
         
         const { data: refData } = await octokit.rest.git.getRef({
-          owner, repo, ref: `heads/${defaultBranch}`
+          owner: targetOwner, repo, ref: `heads/${defaultBranch}`
         });
         const baseSha = refData.object.sha;
 
         await octokit.rest.git.createRef({
-          owner, repo, ref: `refs/heads/${branchName}`, sha: baseSha
+          owner: targetOwner, repo, ref: `refs/heads/${branchName}`, sha: baseSha
         });
 
         await octokit.rest.repos.createOrUpdateFileContents({
-          owner, repo,
+          owner: targetOwner, repo,
           path: analysis.file_path,
           message: `Fix issue #${issueNumber}: ${analysis.intent}`,
           content: Buffer.from(newContent).toString('base64'),
@@ -116,14 +170,14 @@ export async function POST(req: NextRequest) {
           branch: branchName
         });
 
-        sendLog("success", "Changes committed to origin.");
+        sendLog("success", "Changes committed to fork.");
         sendLog("action", "Creating Pull Request...");
 
         const { data: pr } = await octokit.rest.pulls.create({
           owner, repo,
-          title: `Fix: ${issue.title} (Auto-Generated)`,
-          body: `This PR automatically resolves #${issueNumber} based on the issue description. \n\n**Intent:** ${analysis.intent}\n**Instructions:** ${analysis.instructions}\n\n*Generated by DevRel Agent using Gemini 1.5 Pro.*`,
-          head: branchName,
+          title: `Fix: ${issue.title}`,
+          body: `This PR automatically resolves #${issueNumber} based on the issue description. \n\n**Intent:** ${analysis.intent}\n**Instructions:** ${analysis.instructions}`,
+          head: owner !== username ? `${username}:${branchName}` : branchName,
           base: defaultBranch
         });
 

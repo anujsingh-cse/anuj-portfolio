@@ -166,11 +166,7 @@ export default function Hero() {
                   <Building2 className="h-5 w-5" />
                   <span>3 Products Shipped</span>
                 </div>
-                <div className="h-1 w-1 rounded-full bg-zinc-700" />
-                <div className="flex items-center gap-2 transition-colors hover:text-zinc-300">
-                  <Users className="h-5 w-5" />
-                  <span>10K+ Active Users</span>
-                </div>
+
                 <div className="h-1 w-1 rounded-full bg-zinc-700" />
                 <div className="flex items-center gap-2 transition-colors hover:text-zinc-300">
                   <Zap className="h-5 w-5" />
