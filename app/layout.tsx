@@ -61,7 +61,7 @@ export const metadata: Metadata = {
       "Building AI-powered products, automation platforms, and SaaS applications.",
     images: [
       {
-        url: "https://anuj-portfolio-rust.vercel.app/og-image-v2.png",
+        url: "https://anuj-portfolio-rust.vercel.app/og-image-v3.png",
         width: 1200,
         height: 630,
         alt: "Anuj Singh — AI Engineer & Startup Builder",
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     title: "Anuj Singh | AI Engineer & Startup Builder",
     description:
       "Building AI-powered products, automation platforms, and SaaS applications.",
-    images: ["https://anuj-portfolio-rust.vercel.app/og-image-v2.png"],
+    images: ["https://anuj-portfolio-rust.vercel.app/og-image-v3.png"],
   },
   robots: {
     index: true,
