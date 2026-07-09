@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { useRecruiterMode } from "@/components/providers/RecruiterModeProvider";
+import InteractiveBackground from "./InteractiveBackground";
 
 export default function Background() {
   const { theme } = useTheme();
@@ -37,6 +38,9 @@ export default function Background() {
         className="animate-blob-reverse absolute left-1/2 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-purple-500/10 blur-[80px] mix-blend-screen transition-opacity duration-1000" 
         style={{ opacity: isRecruiterMode ? 0.1 : 1 }}
       />
+
+      {/* 3D Particle Constellation Flow Field */}
+      <InteractiveBackground />
 
       <div className="noise-bg" />
     </div>
