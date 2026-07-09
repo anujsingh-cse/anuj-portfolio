@@ -184,7 +184,11 @@ export default function InteractiveBackground() {
         ctx.globalAlpha = 1.0;
       }
 
-      animationFrameId = requestAnimationFrame(render);
+      // Check for reduced motion preference
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!prefersReducedMotion) {
+        animationFrameId = requestAnimationFrame(render);
+      }
     };
 
     render();

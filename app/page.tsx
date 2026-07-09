@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import ProofOfWork from "@/components/ProofOfWork";
-import BuildingInPublic from "@/components/BuildingInPublic";
+
 import Timeline from "@/components/Timeline";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -48,10 +48,7 @@ export default function Home() {
         <div className="section-divider" />
         <Timeline />
 
-        <div className="section-divider" />
-        <BuildingInPublic />
 
-        <div className="section-divider" />
         <BlogPreview />
 
         <div className="section-divider" />

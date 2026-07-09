@@ -8,6 +8,8 @@ interface SectionWrapperProps {
   className?: string;
   delay?: number;
   id?: string;
+  "aria-label"?: string;
+  "aria-labelledby"?: string;
 }
 
 export default function SectionWrapper({
@@ -15,6 +17,8 @@ export default function SectionWrapper({
   className = "",
   delay = 0,
   id,
+  "aria-label": ariaLabel,
+  "aria-labelledby": ariaLabelledBy,
 }: SectionWrapperProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -23,6 +27,8 @@ export default function SectionWrapper({
     <motion.section
       ref={ref}
       id={id}
+      aria-label={ariaLabel}
+      aria-labelledby={ariaLabelledBy}
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{

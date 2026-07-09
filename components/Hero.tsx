@@ -126,20 +126,7 @@ export default function Hero() {
             </Button>
           </MagneticButton>
 
-          <MagneticButton>
-            <Button
-              variant="outline"
-              size="lg"
-              asChild
-              onClick={handleCalendlyClick}
-              className="w-full gap-2 rounded-xl border-white/10 bg-white/5 px-8 backdrop-blur transition-all hover:border-purple-500/50 hover:bg-white/10 hover:text-purple-400 sm:w-auto"
-            >
-              <a href={personal.calUrl} target="_blank" rel="noopener noreferrer">
-                <Calendar className="h-4 w-4" />
-                Schedule a Call
-              </a>
-            </Button>
-          </MagneticButton>
+
         </motion.div>
       </motion.div>
 
@@ -156,7 +143,7 @@ export default function Hero() {
       animate="visible"
       className="mt-24 w-full overflow-hidden border-y border-white/5 bg-white/[0.02] py-8"
     >
-      <div className="flex w-fit animate-marquee items-center gap-16 whitespace-nowrap px-8 text-sm font-medium text-zinc-500">
+      <div className="flex w-fit animate-marquee items-center gap-16 whitespace-nowrap px-8 text-sm font-medium text-zinc-400">
             {/* Duplicated for infinite scroll effect */}
             {[1, 2].map((group) => (
               <div key={group} className="flex items-center gap-16">

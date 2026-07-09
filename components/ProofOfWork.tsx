@@ -13,7 +13,7 @@ export default function ProofOfWork() {
   const projects = getFeaturedProjects();
 
   return (
-    <SectionWrapper id="proof-of-work" className="section-padding container-custom">
+    <SectionWrapper id="proof-of-work" className="section-padding container-custom" aria-label="Featured Case Studies">
       <div className="mb-16 flex flex-col items-center text-center">
         <span className="inline-block rounded-full border border-purple-500/20 bg-purple-500/10 px-3 py-1 text-xs font-medium uppercase tracking-widest text-purple-400">
           Proof of Work
@@ -33,9 +33,10 @@ export default function ProofOfWork() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1, duration: 0.5 }}
-            className={`group relative overflow-hidden rounded-3xl border border-white/5 bg-white/[0.02] transition-all duration-500 hover:-translate-y-2 hover:border-cyan-500/30 hover:shadow-2xl hover:shadow-cyan-500/10 ${
+            className={`group relative overflow-hidden rounded-3xl border border-white/5 bg-white/[0.02] transition-all duration-500 hover:-translate-y-2 hover:border-cyan-500/30 hover:shadow-2xl hover:shadow-cyan-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/50 ${
               project.gridSpan || "col-span-1"
             }`}
+            tabIndex={0}
           >
             {/* Background Glow */}
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 via-transparent to-purple-500/0 opacity-0 transition-opacity duration-500 group-hover:from-cyan-500/10 group-hover:to-purple-500/10 group-hover:opacity-100" />
@@ -107,7 +108,7 @@ export default function ProofOfWork() {
                 <div className="absolute inset-0 flex items-center justify-center gap-4 bg-black/60 opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
                   <Link
                     href={`/projects/${project.slug}`}
-                    className="flex h-12 items-center gap-2 rounded-xl bg-white text-black px-6 font-semibold hover:bg-zinc-200"
+                    className="flex h-12 items-center gap-2 rounded-xl bg-white text-black px-6 font-semibold hover:bg-zinc-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
                     onClick={() => trackEvent("project_click", { project: project.slug })}
                   >
                     Read Case Study
@@ -119,7 +120,7 @@ export default function ProofOfWork() {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/20 text-white backdrop-blur hover:bg-white/30"
+                      className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/20 text-white backdrop-blur hover:bg-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
                       title="Live Demo"
                     >
                       <ExternalLink className="h-5 w-5" />
@@ -131,7 +132,7 @@ export default function ProofOfWork() {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/20 text-white backdrop-blur hover:bg-white/30"
+                      className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/20 text-white backdrop-blur hover:bg-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
                       title="Source Code"
                     >
                       <FaGithub className="h-5 w-5" />
@@ -141,13 +142,7 @@ export default function ProofOfWork() {
               </div>
             </div>
             
-            {/* Clickable Area for Mobile */}
-            <Link 
-              href={`/projects/${project.slug}`} 
-              className="absolute inset-0 z-0 sm:hidden"
-              onClick={() => trackEvent("project_click", { project: project.slug, source: "mobile_overlay" })}
-              aria-label={`View ${project.title} case study`}
-            />
+
           </motion.div>
         ))}
       </div>
