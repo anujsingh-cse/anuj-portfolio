@@ -87,7 +87,19 @@ export default function Navbar() {
           <Button
             variant="ghost"
             size="sm"
-            onClick={toggleRecruiterMode}
+            onClick={() => {
+              toggleRecruiterMode();
+              if (!isRecruiterMode) {
+                setTimeout(() => {
+                  const el = document.getElementById("recruiter-dashboard");
+                  if (el) {
+                    const offset = 80;
+                    const y = el.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top: y, behavior: "smooth" });
+                  }
+                }, 100);
+              }
+            }}
             className={`hidden items-center gap-2 sm:flex ${
               isRecruiterMode ? "text-green-400 bg-green-500/10 hover:bg-green-500/20" : "text-zinc-500 hover:text-white"
             }`}
