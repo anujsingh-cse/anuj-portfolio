@@ -16,10 +16,20 @@ export function RecruiterModeProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     setMounted(true);
+    
+    let isUrlRefRecruiter = false;
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      isUrlRefRecruiter = params.get("ref") === "recruiter" || params.get("mode") === "recruiter";
+    }
+
     const stored = localStorage.getItem("recruiterMode");
-    if (stored === "true") {
+    if (isUrlRefRecruiter || stored === "true") {
       setIsRecruiterMode(true);
       document.documentElement.classList.add("recruiter-mode");
+      if (isUrlRefRecruiter) {
+        localStorage.setItem("recruiterMode", "true");
+      }
     }
   }, []);
 
