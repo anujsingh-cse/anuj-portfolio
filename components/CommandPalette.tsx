@@ -150,7 +150,11 @@ export default function CommandPalette() {
             </div>
 
             {/* Results */}
-            <div className="max-h-72 overflow-y-auto p-2">
+            <div 
+              className="max-h-72 overflow-y-auto p-2"
+              role="listbox"
+              aria-label="Search results"
+            >
               {filtered.length === 0 ? (
                 <p className="px-4 py-8 text-center text-sm text-zinc-500">
                   No results found.
@@ -176,6 +180,8 @@ export default function CommandPalette() {
                               onMouseEnter={() =>
                                 setSelectedIndex(globalIndex)
                               }
+                              role="option"
+                              aria-selected={selectedIndex === globalIndex}
                               className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm transition-colors ${
                                 selectedIndex === globalIndex
                                   ? "bg-white/5 text-white"

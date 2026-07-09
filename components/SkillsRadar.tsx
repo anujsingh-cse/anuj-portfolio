@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Tooltip } from "recharts";
 import { skills, getCategories, getSkillsByCategory, getCurrentlyLearning } from "@/data/skills";
@@ -23,6 +24,11 @@ const radarData = getCategories().map((category) => {
 export default function SkillsRadar() {
   const categories = getCategories();
   const currentlyLearning = getCurrentlyLearning();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <SectionWrapper id="skills" className="section-padding container-custom">
@@ -49,33 +55,39 @@ export default function SkillsRadar() {
           {/* Decorative glow */}
           <div className="absolute inset-0 rounded-full bg-cyan-500/5 blur-3xl" />
           
-          <ResponsiveContainer width="100%" height="100%">
-            <RadarChart cx="50%" cy="50%" outerRadius="70%" data={radarData}>
-              <PolarGrid stroke="rgba(255,255,255,0.1)" />
-              <PolarAngleAxis 
-                dataKey="subject" 
-                tick={{ fill: 'rgba(255,255,255,0.5)', fontSize: 11, fontWeight: 600 }} 
-              />
-              <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} axisLine={false} />
-              <Radar
-                name="Proficiency"
-                dataKey="A"
-                stroke="#06b6d4"
-                strokeWidth={2}
-                fill="#06b6d4"
-                fillOpacity={0.2}
-              />
-              <Tooltip
-                contentStyle={{
-                  backgroundColor: 'rgba(9, 9, 11, 0.9)',
-                  borderColor: 'rgba(255, 255, 255, 0.1)',
-                  borderRadius: '12px',
-                  boxShadow: '0 10px 40px -10px rgba(0,0,0,0.5)',
-                }}
-                itemStyle={{ color: '#06b6d4' }}
-              />
-            </RadarChart>
-          </ResponsiveContainer>
+          {mounted ? (
+            <ResponsiveContainer width="100%" height="100%">
+              <RadarChart cx="50%" cy="50%" outerRadius="70%" data={radarData}>
+                <PolarGrid stroke="rgba(255,255,255,0.1)" />
+                <PolarAngleAxis 
+                  dataKey="subject" 
+                  tick={{ fill: 'rgba(255,255,255,0.5)', fontSize: 11, fontWeight: 600 }} 
+                />
+                <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} axisLine={false} />
+                <Radar
+                  name="Proficiency"
+                  dataKey="A"
+                  stroke="#06b6d4"
+                  strokeWidth={2}
+                  fill="#06b6d4"
+                  fillOpacity={0.2}
+                />
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: 'rgba(9, 9, 11, 0.9)',
+                    borderColor: 'rgba(255, 255, 255, 0.1)',
+                    borderRadius: '12px',
+                    boxShadow: '0 10px 40px -10px rgba(0,0,0,0.5)',
+                  }}
+                  itemStyle={{ color: '#06b6d4' }}
+                />
+              </RadarChart>
+            </ResponsiveContainer>
+          ) : (
+            <div className="flex h-full w-full items-center justify-center">
+              <div className="h-48 w-48 rounded-full border-4 border-cyan-500/10 border-t-cyan-500 animate-spin" />
+            </div>
+          )}
         </motion.div>
 
         {/* Detailed Category Grid */}

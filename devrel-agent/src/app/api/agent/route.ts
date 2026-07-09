@@ -117,8 +117,8 @@ export async function POST(req: NextRequest) {
           });
           fileData = response.data;
         } catch (e: any) {
-          if (e.status === 404) {
-             throw new Error(`File '${filePath}' was not found in the repository. The AI might have hallucinated the path.`);
+          if (e.status === 404 || (e.message && e.message.includes('Not Found'))) {
+             throw new Error(`File '${filePath}' was not found in the repository. Please verify the AI suggested a valid file.`);
           }
           throw e;
         }
@@ -195,7 +195,7 @@ export async function POST(req: NextRequest) {
         const { data: pr } = await octokit.rest.pulls.create({
           owner, repo,
           title: `Fix: ${issue.title}`,
-          body: `This PR automatically resolves #${issueNumber} based on the issue description. \n\n**Intent:** ${analysis.intent}\n**Instructions:** ${analysis.instructions}`,
+          body: `Hey! I've put together a fix for #${issueNumber}. \n\nLet me know if this looks good to you or if you need any adjustments!`,
           head: owner !== username ? `${username}:${branchName}` : branchName,
           base: defaultBranch
         });

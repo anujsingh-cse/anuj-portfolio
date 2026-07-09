@@ -191,6 +191,7 @@ export default function Terminal() {
             spellCheck={false}
             autoComplete="off"
             autoFocus
+            aria-label="Interactive terminal input"
           />
         </div>
         <div ref={bottomRef} />

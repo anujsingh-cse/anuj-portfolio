@@ -5,6 +5,7 @@ import SectionWrapper from "./SectionWrapper";
 import BlogCard from "./BlogCard";
 import { getPublishedPosts } from "@/data/blog";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -38,10 +39,12 @@ export default function BlogPreview() {
           <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 via-transparent to-purple-500/0 opacity-0 transition-opacity duration-500 group-hover:from-cyan-500/5 group-hover:to-purple-500/5 group-hover:opacity-100" />
           
           <div className="relative aspect-[16/9] w-full overflow-hidden">
-            <img 
+            <Image 
               src={featuredPost.coverImage} 
               alt={featuredPost.title}
-              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6">
