@@ -77,8 +77,6 @@ export default function Hero() {
               2000,
               "Full-stack engineer → 0→1 startup builder",
               2000,
-              "Shipped 3 products, 10K+ users, $XXK revenue",
-              2000,
               "React · TypeScript · Python · LLMs · Cloud",
               2000,
             ]}
