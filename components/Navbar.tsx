@@ -100,13 +100,13 @@ export default function Navbar() {
                 }, 100);
               }
             }}
-            className={`hidden items-center gap-2 sm:flex ${
+            className={`flex items-center justify-center w-9 h-9 p-0 sm:w-auto sm:h-9 sm:px-3 gap-2 ${
               isRecruiterMode ? "text-green-400 bg-green-500/10 hover:bg-green-500/20" : "text-zinc-500 hover:text-white"
             }`}
             title="Toggle Recruiter Mode"
           >
             <Briefcase className="h-4 w-4" />
-            <span className="text-xs font-medium">{isRecruiterMode ? "Recruiter Mode ON" : "Recruiter Mode"}</span>
+            <span className="hidden text-xs font-medium sm:inline-block">{isRecruiterMode ? "Recruiter Mode ON" : "Recruiter Mode"}</span>
           </Button>
 
           {/* Command Palette Trigger */}
@@ -164,7 +164,33 @@ export default function Navbar() {
                     </motion.div>
                   );
                 })}
-                <div className="mt-4 border-t border-white/5 pt-4">
+                <div className="mt-4 border-t border-white/5 pt-4 flex flex-col gap-3">
+                  <Button
+                    variant="outline"
+                    onClick={() => {
+                      setMobileOpen(false);
+                      toggleRecruiterMode();
+                      if (!isRecruiterMode) {
+                        setTimeout(() => {
+                          const el = document.getElementById("recruiter-dashboard");
+                          if (el) {
+                            const offset = 80;
+                            const y = el.getBoundingClientRect().top + window.scrollY - offset;
+                            window.scrollTo({ top: y, behavior: "smooth" });
+                          }
+                        }, 100);
+                      }
+                    }}
+                    className={`w-full gap-2 justify-center border-white/10 ${
+                      isRecruiterMode 
+                        ? "text-green-400 bg-green-500/10 border-green-500/20 hover:bg-green-500/20" 
+                        : "text-zinc-500 hover:text-white hover:bg-white/5"
+                    }`}
+                  >
+                    <Briefcase className="h-4 w-4" />
+                    <span>{isRecruiterMode ? "Recruiter Mode ON" : "Recruiter Mode"}</span>
+                  </Button>
+
                   <Button asChild className="w-full">
                     <a href="/resume.html" target="_blank" rel="noopener noreferrer">
                       View Resume
