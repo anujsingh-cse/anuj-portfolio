@@ -72,21 +72,6 @@ export default function ProofOfWork() {
                 )}
               </div>
 
-              {/* Outcomes / Key Metrics */}
-              {project.metrics && project.metrics.length > 0 && (
-                <div className="mt-6 grid grid-cols-3 gap-2 border-t border-white/5 pt-4">
-                  {project.metrics.map((metric) => (
-                    <div key={metric.label}>
-                      <p className="text-sm font-extrabold text-cyan-400 font-mono tracking-tight sm:text-base">
-                        {metric.value}
-                      </p>
-                      <p className="text-[9px] text-zinc-500 font-semibold uppercase tracking-wider mt-0.5">
-                        {metric.label}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              )}
 
               {/* Spacer to push image/buttons to bottom */}
               <div className="flex-1" />

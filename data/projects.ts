@@ -26,11 +26,6 @@ export const projects: Project[] = [
     problem: "Citizens struggle to understand complex eligibility criteria for government schemes, leading to a 60% rejection rate due to incorrect documentation.",
     solution: "Architected a RAG pipeline that processes unstructured government PDFs and provides an conversational interface for citizens to check eligibility in 12 languages.",
     architecture: "The frontend is built with Next.js (App Router) deployed on Vercel. User queries hit a FastAPI Python backend, which orchestrates calls to a Pinecone vector database containing chunked policy documents. The OpenAI API generates the final response, structured via LangChain.",
-    metrics: [
-      { label: "Active Users", value: "10K+" },
-      { label: "Processing Accuracy", value: "94%" },
-      { label: "Time Saved/App", value: "85%" }
-    ],
     futureRoadmap: [
       "Integrate WhatsApp Business API for direct citizen interaction",
       "Implement local, open-source LLMs (Llama 3) for data privacy",
@@ -61,11 +56,6 @@ export const projects: Project[] = [
     category: "ai",
     problem: "Engineering teams spend excessive time in sync meetings debating architectural trade-offs, leading to decision paralysis or unmitigated compliance risks.",
     solution: "Architected a multi-agent framework where specialized personas represent key viewpoints (innovation, risk, user experience, compliance), converging on optimized decisions autonomously.",
-    metrics: [
-      { label: "Decisions Made", value: "10K+" },
-      { label: "Debate Convergence", value: "98%" },
-      { label: "Time Saved/Meeting", value: "70%" }
-    ],
     createdAt: "2024-04-10T00:00:00Z",
     updatedAt: "2024-06-15T00:00:00Z",
     gridSpan: "col-span-1",
@@ -90,11 +80,6 @@ export const projects: Project[] = [
     category: "open-source",
     problem: "Maintainers of popular open-source repositories spend over 15 hours a week just triaging issues and fixing minor typos.",
     solution: "Deployed a Probot-based GitHub App that acts as an AI maintainer, autonomously resolving 25% of trivial issues without human intervention.",
-    metrics: [
-      { label: "GitHub Stars", value: "450+" },
-      { label: "Issues Triaged", value: "5K+" },
-      { label: "Maintainer Hours Saved", value: "300+" }
-    ],
     createdAt: "2023-12-01T00:00:00Z",
     updatedAt: "2024-02-15T00:00:00Z",
     gridSpan: "col-span-1",
@@ -117,11 +102,6 @@ export const projects: Project[] = [
     liveUrl: "https://autoinvoice-ocr.vercel.app",
     featured: true,
     category: "automation",
-    metrics: [
-      { label: "Invoices Processed", value: "50K+" },
-      { label: "MRR", value: "$1.2K" },
-      { label: "Extraction Accuracy", value: "98.5%" }
-    ],
     createdAt: "2023-05-20T00:00:00Z",
     updatedAt: "2023-09-10T00:00:00Z",
     gridSpan: "col-span-2",

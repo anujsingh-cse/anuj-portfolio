@@ -56,44 +56,6 @@ export default function FeaturedProject() {
           {project.description}
         </motion.p>
 
-        {/* Metrics */}
-        {project.metrics && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4"
-          >
-            {project.metrics.map((metric: { label: string; value: string; icon?: string }) => {
-              const IconComponent = metric.icon ? iconMap[metric.icon] : null;
-              const numericValue = parseInt(metric.value.replace(/\D/g, ""));
-              const suffix = metric.value.replace(/\d/g, "");
-
-              return (
-                <div
-                  key={metric.label}
-                  className="glass-card flex flex-col items-center gap-2 p-5 text-center"
-                >
-                  {IconComponent && (
-                    <IconComponent className="h-5 w-5 text-cyan-400" />
-                  )}
-                  <span className="text-2xl font-bold text-white">
-                    {numericValue > 0 ? (
-                      <AnimatedCounter
-                        target={numericValue}
-                        suffix={suffix}
-                      />
-                    ) : (
-                      metric.value
-                    )}
-                  </span>
-                  <span className="text-xs text-zinc-500">{metric.label}</span>
-                </div>
-              );
-            })}
-          </motion.div>
-        )}
 
         {/* Tech Stack */}
         <motion.div
