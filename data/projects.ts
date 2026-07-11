@@ -50,7 +50,7 @@ export const projects: Project[] = [
       "Interactive dashboard for submitting motions and visualizing debate logs",
       "State-persistent session storage and markdown export of synthesized decisions",
     ],
-    githubUrl: "https://github.com/anujsingh-cse/agent-parliament",
+    githubUrl: "https://github.com/anujsingh-cse/AgentParliament.git",
     liveUrl: "#",
     featured: true,
     category: "ai",
