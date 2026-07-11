@@ -56,7 +56,7 @@ export const projects: Project[] = [
       "State-persistent session storage and markdown export of synthesized decisions",
     ],
     githubUrl: "https://github.com/anujsingh-cse/agent-parliament",
-    liveUrl: "https://agent-parliament.vercel.app",
+    liveUrl: "#",
     featured: true,
     category: "ai",
     problem: "Engineering teams spend excessive time in sync meetings debating architectural trade-offs, leading to decision paralysis or unmitigated compliance risks.",
