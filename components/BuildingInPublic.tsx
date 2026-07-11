@@ -85,8 +85,8 @@ export default function BuildingInPublic() {
             {
               id: 4,
               type: "branch",
-              repo: "anuj-singh/nexus-analytics",
-              message: "Created branch 'feat/clickhouse-mat-views'",
+              repo: "anuj-singh/agent-parliament",
+              message: "Created branch 'feat/multi-agent-debate-engine'",
               time: "3 days ago"
             }
           ].map((activity, i) => (
