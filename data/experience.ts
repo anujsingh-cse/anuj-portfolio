@@ -21,7 +21,7 @@ export const experience: Experience[] = [
     title: "Data Scientist",
     organization: "The Boring Education",
     description: "Built data pipelines and optimized machine learning models for educational platforms.",
-    startDate: "2024-10",
+    startDate: "2026-03",
     current: true,
     highlights: [
       "Designed and deployed machine learning solutions to analyze student learning behavior and personalize learning paths.",
@@ -31,7 +31,7 @@ export const experience: Experience[] = [
   {
     id: "3",
     type: "work",
-    title: "Data Scientist",
+    title: "Data Analyst",
     organization: "V.EDU'S PRIVATE LIMITED",
     description: "Developed and implemented AI/ML solutions in an ed-tech context.",
     startDate: "2024-01",
