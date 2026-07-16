@@ -2,20 +2,6 @@ import type { Experience } from "@/types";
 
 export const experience: Experience[] = [
   {
-    id: "1",
-    type: "work",
-    title: "Senior AI Engineer",
-    organization: "YojanaSetu (Startup)",
-    description: "Leading the development of an AI-powered GovTech platform.",
-    startDate: "2024-01",
-    current: true,
-    highlights: [
-      "Architected a RAG-based eligibility engine using LangChain and Pinecone → increased document processing accuracy from 70% to 94% → saved manual reviewers over 200 hours per month.",
-      "Engineered a multi-lingual voice agent integrating OpenAI Whisper and local LLMs → successfully onboarded 5,000+ illiterate users within the first month of launch.",
-      "Optimized the Next.js frontend and PostgreSQL database queries → reduced p95 API latency by 60% → improved user retention by 25% on mobile devices."
-    ],
-  },
-  {
     id: "2",
     type: "work",
     title: "Data Scientist",
