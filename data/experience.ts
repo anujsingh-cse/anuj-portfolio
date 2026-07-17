@@ -50,7 +50,6 @@ export const experience: Experience[] = [
     endDate: "2026-05",
     highlights: [
       "Published research paper on 'Efficient LLM Fine-Tuning' → cited 15+ times by other researchers.",
-      "Led the college robotics team of 20+ members → secured 1st place in National Hackathon 2021 out of 500+ teams.",
       "Developed the university's official student portal used by 4,000+ active students daily."
     ],
   }

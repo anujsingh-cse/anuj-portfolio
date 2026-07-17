@@ -4,7 +4,7 @@ export const personal: PersonalInfo = {
   name: "Anuj Singh",
   role: "AI Engineer & Startup Builder",
   location: "Mohali, Punjab, India",
-  email: "justchilldude686@gmail.com",
+  email: "anujsingh0543@gmail.com",
   github: "https://github.com/anujsingh-cse",
   linkedin: "#",
   twitter: "#",
