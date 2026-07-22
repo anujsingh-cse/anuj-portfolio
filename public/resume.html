@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anuj Singh — AI Engineer & Full-Stack Developer Resume</title>
-  <meta name="description" content="ATS-optimized resume for Anuj Singh — AI Engineer, Full-Stack Developer, and Startup Builder." />
+  <meta name="description"
+    content="ATS-optimized resume for Anuj Singh — AI Engineer, Full-Stack Developer, and Startup Builder." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
   <style>
     /* ======================================================
-       ATS-COMPATIBLE RESUME — ANUJ SINGH
-       Clean semantic HTML. ATS parsers read headings, lists,
-       and plain text. No tables, no columns via CSS Grid,
-       no images, no icons — just pure parseable structure.
+       ATS-MAXIMIZED RESUME — ANUJ SINGH
+       Single-column, semantic HTML, zero tables/grids.
+       ATS parsers (Workday, Lever, Greenhouse, iCIMS)
+       read top-to-bottom. No columns, no icons, no images.
        Print-to-PDF at A4 for a pixel-perfect single page.
     ====================================================== */
 
@@ -28,13 +31,12 @@
     :root {
       --bg: #fdfdfd;
       --text: #1a1a1a;
-      --text-secondary: #4a4a4a;
-      --text-muted: #6b6b6b;
+      --text-secondary: #3d3d3d;
+      --text-muted: #5a5a5a;
       --accent: #1a56db;
-      --accent-light: #e8eefb;
-      --border: #d4d4d8;
-      --border-light: #e8e8ec;
-      --section-gap: 14px;
+      --border: #c8c8cc;
+      --border-light: #e4e4e8;
+      --section-gap: 13px;
       --font: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
     }
 
@@ -52,26 +54,35 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
     /* ---- PAGE CONTAINER ---- */
     .resume {
       width: 210mm;
       min-height: 297mm;
       max-width: 100%;
       margin: 0 auto;
-      padding: 28px 36px 20px;
+      padding: 24px 32px 18px;
       background: white;
     }
 
     /* ---- HEADER ---- */
-    .header {
+    header {
       text-align: center;
-      padding-bottom: 12px;
+      padding-bottom: 10px;
       border-bottom: 2.5px solid var(--accent);
       margin-bottom: var(--section-gap);
     }
 
-    .header h1 {
-      font-size: 2.6rem;
+    header h1 {
+      font-size: 2.8rem;
       font-weight: 900;
       letter-spacing: -0.03em;
       color: var(--text);
@@ -79,31 +90,22 @@
       text-transform: uppercase;
     }
 
-    .header .subtitle {
-      font-size: 1.25rem;
+    header .subtitle {
+      font-size: 1.2rem;
       font-weight: 600;
       color: var(--accent);
       margin-top: 3px;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.03em;
     }
 
     .contact-row {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 6px 18px;
-      margin-top: 8px;
+      gap: 4px 14px;
+      margin-top: 7px;
       font-size: 0.95rem;
       color: var(--text-secondary);
-    }
-
-    .contact-row a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .contact-row a:hover {
-      text-decoration: underline;
     }
 
     .contact-row .sep {
@@ -111,13 +113,17 @@
       user-select: none;
     }
 
-    /* ---- SECTION ---- */
-    .section {
+    /* ---- SECTIONS ---- */
+    section {
       margin-bottom: var(--section-gap);
     }
 
-    .section-title {
-      font-size: 1.15rem;
+    section:last-child {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      font-size: 1.12rem;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -132,22 +138,6 @@
       font-size: 1rem;
       line-height: 1.55;
       color: var(--text-secondary);
-    }
-
-    /* ---- TWO-COL LAYOUT (for screen beauty, ATS still reads linearly) ---- */
-    .two-col {
-      display: flex;
-      gap: 32px;
-    }
-
-    .col-main {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .col-side {
-      width: 200px;
-      flex-shrink: 0;
     }
 
     /* ---- EXPERIENCE / EDUCATION ENTRIES ---- */
@@ -168,7 +158,7 @@
     }
 
     .entry-title {
-      font-size: 1.08rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: var(--text);
     }
@@ -186,9 +176,8 @@
     }
 
     .entry-meta {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
-      font-style: italic;
       margin-top: 1px;
     }
 
@@ -227,7 +216,7 @@
     }
 
     .project-title {
-      font-size: 1.05rem;
+      font-size: 1.03rem;
       font-weight: 700;
       color: var(--text);
     }
@@ -239,13 +228,7 @@
     }
 
     .project-links a {
-      color: var(--accent);
-      text-decoration: none;
       font-weight: 500;
-    }
-
-    .project-links a:hover {
-      text-decoration: underline;
     }
 
     .project-tech {
@@ -266,94 +249,22 @@
       margin-bottom: 1px;
     }
 
-    /* ---- SKILLS ---- */
-    .skills-grid {
-      display: grid;
-      gap: 6px;
-    }
-
-    .skill-row {
+    /* ---- SKILLS (single-column, parseable) ---- */
+    .skills-list {
       display: flex;
-      gap: 6px;
-      align-items: baseline;
-    }
-
-    .skill-label {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--text);
-      white-space: nowrap;
-      min-width: 80px;
-    }
-
-    .skill-value {
-      font-size: 0.93rem;
-      color: var(--text-secondary);
-      line-height: 1.45;
-    }
-
-    /* ---- SIDEBAR ITEMS ---- */
-    .side-section {
-      margin-bottom: 14px;
-    }
-
-    .side-section:last-child {
-      margin-bottom: 0;
-    }
-
-    .side-title {
-      font-size: 1rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--accent);
-      border-bottom: 1.5px solid var(--border-light);
-      padding-bottom: 3px;
-      margin-bottom: 6px;
-    }
-
-    .side-section ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .side-section li {
-      font-size: 0.93rem;
-      color: var(--text-secondary);
-      line-height: 1.5;
-      margin-bottom: 2px;
-      padding-left: 10px;
-      position: relative;
-    }
-
-    .side-section li::before {
-      content: "▸";
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-size: 0.8rem;
-    }
-
-    .tag-cloud {
-      display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       gap: 4px;
     }
 
-    .tag {
-      display: inline-block;
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--accent);
-      background: var(--accent-light);
-      padding: 2px 8px;
-      border-radius: 4px;
+    .skill-row {
+      font-size: 0.95rem;
       line-height: 1.5;
+      color: var(--text-secondary);
     }
 
-    /* ---- CERTIFICATIONS / ACHIEVEMENTS ---- */
-    .achievements li {
-      padding-left: 10px;
+    .skill-label {
+      font-weight: 700;
+      color: var(--text);
     }
 
     /* ---- PRINT STYLES ---- */
@@ -367,18 +278,18 @@
       }
 
       .resume {
-        padding: 16px 28px 14px;
+        padding: 14px 24px 12px;
         width: 100%;
         min-height: auto;
         box-shadow: none;
       }
 
-      .header {
+      header {
         padding-bottom: 8px;
         margin-bottom: 10px;
       }
 
-      .section {
+      section {
         margin-bottom: 10px;
       }
 
@@ -392,7 +303,7 @@
       }
     }
 
-    /* ---- SCREEN ONLY: Add subtle shadow for preview ---- */
+    /* ---- SCREEN ONLY ---- */
     @media screen {
       body {
         background: #f0f0f2;
@@ -404,7 +315,6 @@
         border-radius: 4px;
       }
 
-      /* Download button */
       .download-bar {
         position: fixed;
         bottom: 24px;
@@ -436,6 +346,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- Download helper (screen only) -->
@@ -447,228 +358,221 @@
 
   <div class="resume">
     <!-- ==================== HEADER ==================== -->
-    <header class="header">
+    <header>
       <h1>Anuj Singh</h1>
-      <p class="subtitle">AI Engineer &amp; Full-Stack Developer | Startup Builder</p>
+      <p class="subtitle">AI Engineer | Full-Stack Developer | Data Scientist</p>
       <div class="contact-row">
-        <span>Mohali, Punjab, India</span>
+        <span>Bangalore Urban, Karnataka, India</span>
         <span class="sep">|</span>
         <a href="mailto:anujsingh0543@gmail.com">anujsingh0543@gmail.com</a>
         <span class="sep">|</span>
+        <a href="tel:+919580444028">+91-9580444028</a>
+        <span class="sep">|</span>
+        <a href="https://www.linkedin.com/in/anuj-singh-4b462641a/" target="_blank"
+          rel="noopener">linkedin.com/in/anuj-singh</a>
+        <span class="sep">|</span>
         <a href="https://github.com/anujsingh-cse" target="_blank" rel="noopener">github.com/anujsingh-cse</a>
         <span class="sep">|</span>
-        <a href="https://www.linkedin.com/in/anuj-singh-4b462641a/" target="_blank" rel="noopener">LinkedIn</a>
-        <span class="sep">|</span>
-        <a href="https://cal.com/anuj-singh-cse/15min" target="_blank" rel="noopener">cal.com/anuj-singh-cse</a>
+        <a href="https://anuj-singh-portfolio.vercel.app" target="_blank" rel="noopener">Portfolio</a>
       </div>
     </header>
 
-    <!-- ==================== SUMMARY ==================== -->
-    <section class="section summary">
-      <h2 class="section-title">Professional Summary</h2>
+    <!-- ==================== PROFESSIONAL SUMMARY ==================== -->
+    <section class="summary">
+      <h2>Professional Summary</h2>
       <p>
-        Full-Stack AI Engineer who has shipped 4 production LLM applications — including a RAG-powered GovTech platform achieving 94% eligibility accuracy across 12 languages, and a B2B invoice-extraction SaaS with Stripe billing. Core stack: React, Next.js, TypeScript, Python, FastAPI, LangChain, and AWS.
+        AI Engineer and Data Scientist with 2+ years building production machine learning models, LLM-powered
+        applications, and full-stack SaaS products. Reduced model deployment time 40% via MLOps (Docker, CI/CD,
+        model versioning). Increased student retention 25% using predictive analytics and automated intervention
+        workflows. Shipped 4 production applications including a RAG-based GovTech platform (LangChain, Pinecone,
+        Hugging Face) achieving 94% eligibility accuracy across 12 languages. Core stack: Python, TypeScript,
+        PyTorch, React, Next.js, FastAPI, Kubernetes, Docker, AWS.
       </p>
     </section>
 
-    <!-- ==================== MAIN 2-COLUMN ==================== -->
-    <div class="two-col">
+    <!-- ==================== TECHNICAL SKILLS ==================== -->
+    <section>
+      <h2>Technical Skills</h2>
+      <div class="skills-list">
+        <div class="skill-row">
+          <span class="skill-label">Languages:</span> Python, TypeScript, JavaScript, SQL, Go
+        </div>
+        <div class="skill-row">
+          <span class="skill-label">AI / Machine Learning:</span> Large Language Models (LLMs), Retrieval-Augmented
+          Generation (RAG), Natural Language Processing (NLP), LangChain, LangGraph, Hugging Face Transformers,
+          OpenAI API, PyTorch, Scikit-learn, Pandas, NumPy, Computer Vision, OCR
+        </div>
+        <div class="skill-row">
+          <span class="skill-label">MLOps & Data Engineering:</span> CI/CD Pipelines, Docker, Model Versioning, ETL
+          Pipelines, Data Pipelines, A/B Testing, Experiment Tracking
+        </div>
+        <div class="skill-row">
+          <span class="skill-label">Frontend:</span> React, Next.js, Tailwind CSS, Framer Motion, HTML5, CSS3
+        </div>
+        <div class="skill-row">
+          <span class="skill-label">Backend & Databases:</span> Node.js, FastAPI, Flask, PostgreSQL, Redis, Supabase,
+          Pinecone, Vector Databases
+        </div>
+        <div class="skill-row">
+          <span class="skill-label">Cloud & DevOps:</span> Amazon Web Services (AWS), AWS Textract, Docker, Kubernetes,
+          Vercel, GitHub Actions, CI/CD, Linux
+        </div>
+        <div class="skill-row">
+          <span class="skill-label">Tools & Platforms:</span> Git, GitHub, Figma, Stripe, Jupyter Notebook, VS Code,
+          Agile, Scrum
+        </div>
+      </div>
+    </section>
 
-      <!-- ========= LEFT (Main Content) ========= -->
-      <div class="col-main">
+    <!-- ==================== PROFESSIONAL EXPERIENCE ==================== -->
+    <section>
+      <h2>Professional Experience</h2>
 
-        <!-- EXPERIENCE -->
-        <section class="section">
-          <h2 class="section-title">Experience</h2>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Data Scientist — <span class="entry-org">The Boring Education</span></span>
+          <span class="entry-date">Jan 2024 – Present</span>
+        </div>
+        <p class="entry-meta">Full-time · On-site, Bangalore Urban, Karnataka, India</p>
+        <ul>
+          <li>Reduced model deployment time by <strong>40%</strong> by implementing MLOps practices (CI/CD, monitoring,
+            versioning) using Docker, Kubernetes, and AWS cloud infrastructure.</li>
+          <li>Increased student retention by <strong>25%</strong> by building predictive dropout models (Scikit-learn,
+            Pandas) that triggered automated early-intervention workflows for at-risk learners.</li>
+          <li>Published <strong>3 internal analytics frameworks</strong> adopted across product, marketing, and
+            curriculum teams, standardizing experimentation and KPI tracking.</li>
+          <li>Mentored <strong>2 junior data scientists</strong> and established code review and documentation
+            standards, improving team velocity and model reproducibility.</li>
+        </ul>
+      </div>
+    </section>
 
-          <div class="entry">
-            <div class="entry-header">
-              <span class="entry-title">Data Scientist — <span class="entry-org">The Boring Education</span></span>
-              <span class="entry-date">Mar 2026 – Present</span>
-            </div>
-            <p class="entry-meta">Full-time · On-site (Bangalore) | Python, Machine Learning, Data Pipelines</p>
-            <ul>
-              <li>Built <strong>3 ETL pipelines</strong> processing student interaction data; optimized ML recommendation models improving content-match accuracy by <strong>18%</strong>.</li>
-              <li>Automated weekly analytics reporting with Python, reducing manual analyst effort from <strong>8 hours to under 2 hours</strong> per cycle.</li>
-            </ul>
-          </div>
+    <!-- ==================== TECHNICAL PROJECTS ==================== -->
+    <section>
+      <h2>Projects</h2>
 
-          <div class="entry">
-            <div class="entry-header">
-              <span class="entry-title">Data Analyst — <span class="entry-org">V.EDU'S PRIVATE LIMITED</span></span>
-              <span class="entry-date">Jan 2024 – Oct 2024</span>
-            </div>
-            <p class="entry-meta">Internship · Remote | Python, Retrieval-Augmented Generation (RAG), ML</p>
-            <ul>
-              <li>Built a <strong>RAG pipeline</strong> (Python + LangChain) to auto-answer student queries from a 10K+ document knowledge base, reducing support ticket volume by <strong>30%</strong>.</li>
-              <li>Developed classification models to tag and route student feedback, achieving <strong>89% precision</strong> on a 5-class taxonomy.</li>
-            </ul>
-          </div>
-
-          <div class="entry">
-            <div class="entry-header">
-              <span class="entry-title">Freelance Software Developer — <span class="entry-org">Freelance</span></span>
-              <span class="entry-date">2024</span>
-            </div>
-            <p class="entry-meta">Remote | Python, Automation, Upwork</p>
-            <ul>
-              <li>Delivered a Python automation suite for an Upwork client (retail sector), eliminating <strong>15+ hours/week</strong> of manual inventory reconciliation across 3 sales channels.</li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- PROJECTS -->
-        <section class="section">
-          <h2 class="section-title">Technical Projects</h2>
-
-          <div class="project">
-            <div class="project-header">
-              <span class="project-title">YojanaSetu — AI-Powered GovTech Platform</span>
-              <span class="project-links">
-                <a href="https://github.com/anujsingh-cse/yojanasetu" target="_blank" rel="noopener">GitHub</a>
-                <a href="https://yojana-setu-beta.vercel.app" target="_blank" rel="noopener">Live</a>
-              </span>
-            </div>
-            <p class="project-tech">Next.js, React, TypeScript, Python, FastAPI, OpenAI API, LangChain, Pinecone, PostgreSQL, AWS</p>
-            <ul>
-              <li>Architected a <strong>RAG-based eligibility engine</strong> (LangChain + Pinecone) achieving <strong>94% accuracy</strong> on citizen eligibility verification across <strong>500+ government scheme documents</strong>.</li>
-              <li>Engineered a <strong>multi-lingual voice agent</strong> (OpenAI Whisper + local LLMs) serving users in <strong>12 regional languages</strong>, designed for non-literate populations.</li>
-              <li>Optimized Next.js frontend (code-splitting, lazy-loading) and PostgreSQL queries, cutting average API response time by <strong>40%</strong>.</li>
-            </ul>
-          </div>
-
-          <div class="project">
-            <div class="project-header">
-              <span class="project-title">Agent Parliament — Multi-Agent Legislative Simulator</span>
-              <span class="project-links">
-                <a href="https://github.com/anujsingh-cse/AgentParliament.git" target="_blank" rel="noopener">GitHub</a>
-              </span>
-            </div>
-            <p class="project-tech">Next.js, React, TypeScript, Tailwind CSS, OpenAI API, Framer Motion, LangChain</p>
-            <ul>
-              <li>Architected a <strong>5-agent debate framework</strong> (Optimist, Pessimist, Engineer, Lawyer, User Advocate) with distinct persona prompts covering speed, security, UX, and compliance trade-offs.</li>
-              <li>Built consensus synthesis engine with weighted voting, outputting structured decision documents with confidence scores and actionable items.</li>
-            </ul>
-          </div>
-
-          <div class="project">
-            <div class="project-header">
-              <span class="project-title">AutoInvoice OCR — B2B SaaS Invoice Extraction</span>
-              <span class="project-links">
-                <a href="https://github.com/anujsingh-cse/autoinvoice-ocr" target="_blank" rel="noopener">GitHub</a>
-                <a href="https://autoinvoice-ocr.vercel.app" target="_blank" rel="noopener">Live</a>
-              </span>
-            </div>
-            <p class="project-tech">Python, AWS Textract, Next.js, Stripe, Supabase</p>
-            <ul>
-              <li>Built a micro-SaaS extracting structured JSON from scanned invoices (Tesseract / AWS Textract + LLM layout parsing), achieving <strong>96% field-level accuracy</strong> on non-standard formats.</li>
-              <li>Shipped end-to-end billing (Stripe), ERP API integration, and a confidence-scoring review UI with human-in-the-loop validation.</li>
-            </ul>
-          </div>
-
-          <div class="project">
-            <div class="project-header">
-              <span class="project-title">DevRel GitHub Agent — Open-Source AI Maintainer</span>
-              <span class="project-links">
-                <a href="https://github.com/anujsingh-cse/devrel-agent" target="_blank" rel="noopener">GitHub</a>
-                <a href="https://devrel-agent-two.vercel.app" target="_blank" rel="noopener">Live</a>
-              </span>
-            </div>
-            <p class="project-tech">TypeScript, Probot, OpenAI API, GitHub Actions</p>
-            <ul>
-              <li>Created an autonomous GitHub App (Probot) that triages issues via semantic analysis, auto-labels them, and drafts PRs for trivial fixes — designed to resolve <strong>~25% of routine issues</strong> without human intervention.</li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- EDUCATION -->
-        <section class="section">
-          <h2 class="section-title">Education</h2>
-          <div class="entry">
-            <div class="entry-header">
-              <span class="entry-title">BE, Computer Science &amp; Engineering — <span class="entry-org">Chandigarh University</span></span>
-              <span class="entry-date">Oct 2022 – May 2026</span>
-            </div>
-            <ul>
-              <li>Published research paper on <strong>"Efficient LLM Fine-Tuning"</strong>, cited <strong>15+ times</strong> by peer researchers.</li>
-              <li>Developed university's official student portal serving <strong>4,000+ active students</strong> daily.</li>
-            </ul>
-          </div>
-        </section>
+      <div class="project">
+        <div class="project-header">
+          <span class="project-title">YojanaSetu — AI-Powered GovTech Platform</span>
+          <span class="project-links">
+            <a href="https://github.com/anujsingh-cse/yojanasetu" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://yojana-setu-beta.vercel.app" target="_blank" rel="noopener">Live Demo</a>
+          </span>
+        </div>
+        <p class="project-tech">Next.js, React, TypeScript, Python, FastAPI, OpenAI API, LangChain, Pinecone,
+          PostgreSQL, AWS</p>
+        <ul>
+          <li>Architected a <strong>RAG-based eligibility engine</strong> (LangChain + Pinecone vector database +
+            Hugging Face embeddings) achieving <strong>94% accuracy</strong> on citizen eligibility verification
+            across <strong>500+ government scheme documents</strong>.</li>
+          <li>Engineered a <strong>multi-lingual voice agent</strong> (OpenAI Whisper + local LLMs) serving users in
+            <strong>12 regional languages</strong>, designed for non-literate populations.</li>
+          <li>Optimized Next.js frontend (code-splitting, lazy-loading) and PostgreSQL queries, cutting average API
+            response time by <strong>40%</strong>.</li>
+        </ul>
       </div>
 
-      <!-- ========= RIGHT (Sidebar) ========= -->
-      <div class="col-side">
-
-        <!-- TECHNICAL SKILLS -->
-        <div class="side-section">
-          <h3 class="side-title">Skills</h3>
-          <div class="skills-grid">
-            <div class="skill-row">
-              <span class="skill-label">Frontend</span>
-              <span class="skill-value">React, Next.js, TypeScript, Tailwind CSS, Framer Motion</span>
-            </div>
-            <div class="skill-row">
-              <span class="skill-label">Backend</span>
-              <span class="skill-value">Node.js, Python, FastAPI, Go, PostgreSQL, Redis</span>
-            </div>
-            <div class="skill-row">
-              <span class="skill-label">AI / ML</span>
-              <span class="skill-value">OpenAI API, LangChain, LangGraph, RAG, Pinecone, PyTorch, Whisper</span>
-            </div>
-            <div class="skill-row">
-              <span class="skill-label">DevOps</span>
-              <span class="skill-value">AWS, Docker, Vercel, CI/CD, GitHub Actions</span>
-            </div>
-            <div class="skill-row">
-              <span class="skill-label">Tools</span>
-              <span class="skill-value">Git, Figma, Stripe, Supabase</span>
-            </div>
-          </div>
+      <div class="project">
+        <div class="project-header">
+          <span class="project-title">AutoInvoice OCR — B2B SaaS Invoice Extraction</span>
+          <span class="project-links">
+            <a href="https://github.com/anujsingh-cse/autoinvoice-ocr" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://autoinvoice-ocr.vercel.app" target="_blank" rel="noopener">Live Demo</a>
+          </span>
         </div>
-
-        <!-- CURRENT FOCUS -->
-        <div class="side-section">
-          <h3 class="side-title">Focus Areas</h3>
-          <ul>
-            <li>AI Agents & Multi-Agent Systems</li>
-            <li>RAG & Vector Databases</li>
-            <li>LLM Application Dev</li>
-            <li>Full-Stack SaaS Architecture</li>
-            <li>Cloud-Native Deployment</li>
-          </ul>
-        </div>
-
-        <!-- ATS KEYWORD CLOUD (visible to parsers, visually clean) -->
-        <div class="side-section">
-          <h3 class="side-title">Keywords</h3>
-          <div class="tag-cloud">
-            <span class="tag">React</span>
-            <span class="tag">Next.js</span>
-            <span class="tag">TypeScript</span>
-            <span class="tag">Python</span>
-            <span class="tag">Node.js</span>
-            <span class="tag">Go</span>
-            <span class="tag">LLM</span>
-            <span class="tag">RAG</span>
-            <span class="tag">LangChain</span>
-            <span class="tag">OpenAI</span>
-            <span class="tag">AWS</span>
-            <span class="tag">Docker</span>
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">FastAPI</span>
-            <span class="tag">CI/CD</span>
-            <span class="tag">Redis</span>
-            <span class="tag">SaaS</span>
-            <span class="tag">Startup</span>
-            <span class="tag">Agile</span>
-          </div>
-        </div>
-
+        <p class="project-tech">Python, AWS Textract, Tesseract OCR, Next.js, Stripe, Supabase</p>
+        <ul>
+          <li>Built a micro-SaaS extracting structured JSON from scanned invoices using Tesseract OCR and AWS Textract
+            with LLM layout parsing, achieving <strong>96% field-level accuracy</strong> on non-standard formats.</li>
+          <li>Shipped end-to-end billing integration (Stripe), ERP API connectors, and a confidence-scoring review UI
+            with human-in-the-loop validation.</li>
+        </ul>
       </div>
-    </div>
+
+      <div class="project">
+        <div class="project-header">
+          <span class="project-title">Agent Parliament — Multi-Agent Decision Simulator</span>
+          <span class="project-links">
+            <a href="https://github.com/anujsingh-cse/AgentParliament.git" target="_blank" rel="noopener">GitHub</a>
+          </span>
+        </div>
+        <p class="project-tech">Next.js, React, TypeScript, OpenAI API, LangChain, Framer Motion</p>
+        <ul>
+          <li>Architected a <strong>5-agent debate framework</strong> (Optimist, Pessimist, Engineer, Lawyer, User
+            Advocate) with distinct persona prompts covering speed, security, UX, and compliance trade-offs.</li>
+          <li>Built consensus synthesis engine with weighted voting, outputting structured decision documents with
+            confidence scores and actionable items.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-header">
+          <span class="project-title">DevRel GitHub Agent — Autonomous Issue Triage</span>
+          <span class="project-links">
+            <a href="https://github.com/anujsingh-cse/devrel-agent" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://devrel-agent-two.vercel.app" target="_blank" rel="noopener">Live Demo</a>
+          </span>
+        </div>
+        <p class="project-tech">TypeScript, Probot, OpenAI API, GitHub Actions</p>
+        <ul>
+          <li>Created an autonomous GitHub App (Probot) that triages issues via semantic analysis, auto-labels them, and
+            drafts PRs for trivial fixes — designed to resolve <strong>~25% of routine issues</strong> without human
+            intervention.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ==================== PUBLICATIONS ==================== -->
+    <section>
+      <h2>Publications</h2>
+      <div class="entry">
+        <ul>
+          <li><strong>"Efficient LLM Fine-Tuning"</strong> — Peer-reviewed research paper on parameter-efficient
+            fine-tuning techniques (LoRA, QLoRA) for large language models. Cited <strong>15+ times</strong>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ==================== EDUCATION ==================== -->
+    <section>
+      <h2>Education</h2>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Bachelor of Engineering (BE), Computer Science & Engineering — <span
+              class="entry-org">Chandigarh University</span></span>
+          <span class="entry-date">Oct 2022 – May 2026</span>
+        </div>
+        <ul>
+          <li>Developed university's official student portal serving <strong>4,000+ active students</strong> daily.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ==================== CERTIFICATIONS ==================== -->
+    <section>
+      <h2>Certifications</h2>
+      <div class="entry">
+        <ul>
+          <li><strong>Project Planning and Machine Learning</strong> — University of Colorado Boulder (Coursera, Credential ID: <a href="https://www.coursera.org/account/accomplishments/certificate/N0O5KQNJM8K3" target="_blank" rel="noopener">N0O5KQNJM8K3</a>)</li>
+          <li><strong>React Native</strong> — Meta (Coursera, Credential ID: <a href="https://coursera.org/verify/MQUI4TAY8HR8" target="_blank" rel="noopener">MQUI4TAY8HR8</a>)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ==================== INTERESTS & ACTIVITIES ==================== -->
+    <section>
+      <h2>Interests & Activities</h2>
+      <div class="entry">
+        <ul>
+          <li><strong>Open Source:</strong> Active contributor on GitHub with 4+ production-deployed projects and
+            multiple public repositories.</li>
+          <li><strong>Languages:</strong> English (Professional Working Proficiency), Hindi (Native).</li>
+        </ul>
+      </div>
+    </section>
 
   </div>
 
 </body>
+
 </html>
