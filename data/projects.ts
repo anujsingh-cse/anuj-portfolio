@@ -105,6 +105,39 @@ export const projects: Project[] = [
     createdAt: "2023-05-20T00:00:00Z",
     updatedAt: "2023-09-10T00:00:00Z",
     gridSpan: "col-span-2",
+  },
+  {
+    id: "5",
+    slug: "causal-inference-toolkit",
+    title: "Causal Inference Toolkit",
+    description: "Production-ready Python library & Streamlit web dashboard wrapping DoWhy/EconML with sensitivity analysis, quasi-experiments, A/B testing, and executive HTML report generation.",
+    content: "Causal Inference Toolkit is an enterprise-grade Python package and interactive Streamlit web dashboard that unifies observational causal inference, quasi-experiments (Synthetic Control, Difference-in-Differences), sensitivity analysis (Cinelli-Hazlett, E-values, Rosenbaum bounds), A/B testing (Frequentist/Bayesian/Sequential), and uplift metalearners (T/S/X/R/DR-learners). Features automatic executive HTML report generation, CLI tools, and visualization pipelines for causal graphs and covariate balance.",
+    coverImage: "/projects/causal.png",
+    gallery: [
+      "/projects/causal.png"
+    ],
+    techStack: ["Python", "DoWhy", "EconML", "Streamlit", "Pytest", "Pandas", "Scikit-Learn"],
+    features: [
+      "Unified DoWhy & EconML estimation pipeline (IPW, Matching, Doubly Robust, Double ML, Causal Forest)",
+      "Quasi-experiments engine: Synthetic Control Method (SCM) & Difference-in-Differences (DiD) event studies",
+      "Multi-layer sensitivity analysis (Rosenbaum bounds, Cinelli-Hazlett, E-values, TIPS curves)",
+      "Interactive Streamlit dashboard & automated standalone HTML executive report generator",
+    ],
+    githubUrl: "https://github.com/anujsingh-cse/causal-inference-toolkit.git",
+    liveUrl: "https://anujsingh-cse.github.io/causal-inference-toolkit/",
+    featured: true,
+    category: "ai",
+    problem: "Observational studies and A/B tests often lack rigorous sensitivity analysis, unified estimation workflows, and executive-ready reporting, leading to unmitigated confounding bias and slow decision cycles.",
+    solution: "Built an end-to-end Python library and Streamlit dashboard combining SOTA causal estimators, quasi-experimental methods, sensitivity bounds, and one-click HTML executive report exports.",
+    architecture: "Modular Python architecture with core causal abstractions, wrapper layer over DoWhy/EconML, dedicated analysis engines (Sensitivity, DiD, SCM, A/B testing, Uplift), Streamlit UI app, Typer CLI, and Jinja2-based executive HTML report generator.",
+    futureRoadmap: [
+      "Add neural causal estimators (TARNet, Dragonnet)",
+      "Implement continuous treatment effect estimation",
+      "Expand automated DAG discovery algorithms"
+    ],
+    createdAt: "2025-01-10T00:00:00Z",
+    updatedAt: "2025-03-01T00:00:00Z",
+    gridSpan: "col-span-1",
   }
 ];
 

@@ -384,9 +384,9 @@
         AI Engineer and Data Scientist with 2+ years building production machine learning models, LLM-powered
         applications, and full-stack SaaS products. Reduced model deployment time 40% via MLOps (Docker, CI/CD,
         model versioning). Increased student retention 25% using predictive analytics and automated intervention
-        workflows. Shipped 4 production applications including a RAG-based GovTech platform (LangChain, Pinecone,
-        Hugging Face) achieving 94% eligibility accuracy across 12 languages. Core stack: Python, TypeScript,
-        PyTorch, React, Next.js, FastAPI, Kubernetes, Docker, AWS.
+        workflows. Shipped 5 production applications including a SOTA Causal Inference Toolkit (DoWhy, EconML, SCM, DiD)
+        and a RAG-based GovTech platform (LangChain, Pinecone, Hugging Face) achieving 94% eligibility accuracy across 12 languages.
+        Core stack: Python, TypeScript, PyTorch, Causal Inference, React, Next.js, FastAPI, Kubernetes, Docker, AWS.
       </p>
     </section>
 
@@ -398,13 +398,10 @@
           <span class="skill-label">Languages:</span> Python, TypeScript, JavaScript, SQL, Go
         </div>
         <div class="skill-row">
-          <span class="skill-label">AI / Machine Learning:</span> Large Language Models (LLMs), Retrieval-Augmented
-          Generation (RAG), Natural Language Processing (NLP), LangChain, LangGraph, Hugging Face Transformers,
-          OpenAI API, PyTorch, Scikit-learn, Pandas, NumPy, Computer Vision, OCR
+          <span class="skill-label">AI / Machine Learning:</span> Causal Inference (DoWhy, EconML), Synthetic Control Method (SCM), Difference-in-Differences (DiD), Sensitivity Analysis, Large Language Models (LLMs), RAG, NLP, LangChain, LangGraph, Hugging Face, OpenAI API, PyTorch, Scikit-learn, Pandas, NumPy, Computer Vision, OCR
         </div>
         <div class="skill-row">
-          <span class="skill-label">MLOps & Data Engineering:</span> CI/CD Pipelines, Docker, Model Versioning, ETL
-          Pipelines, Data Pipelines, A/B Testing, Experiment Tracking
+          <span class="skill-label">MLOps & Data Engineering:</span> CI/CD Pipelines, Docker, Model Versioning, ETL Pipelines, Data Pipelines, A/B Testing (Bayesian/Sequential), Uplift Modeling, Experiment Tracking
         </div>
         <div class="skill-row">
           <span class="skill-label">Frontend:</span> React, Next.js, Tailwind CSS, Framer Motion, HTML5, CSS3
@@ -502,6 +499,22 @@
             Advocate) with distinct persona prompts covering speed, security, UX, and compliance trade-offs.</li>
           <li>Built consensus synthesis engine with weighted voting, outputting structured decision documents with
             confidence scores and actionable items.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-header">
+          <span class="project-title">Causal Inference Toolkit — Production Library & Dashboard</span>
+          <span class="project-links">
+            <a href="https://github.com/anujsingh-cse/causal-inference-toolkit.git" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://anujsingh-cse.github.io/causal-inference-toolkit/" target="_blank" rel="noopener">Docs & Demo</a>
+          </span>
+        </div>
+        <p class="project-tech">Python, DoWhy, EconML, Streamlit, Sensitivity Analysis, Synthetic Control, DiD, Uplift Modeling, Pytest</p>
+        <ul>
+          <li>Engineered a <strong>production-ready causal inference toolkit</strong> unifying DoWhy identification/refutation and EconML heterogeneous effect estimation (IPW, Doubly Robust, Double ML, Causal Forests).</li>
+          <li>Implemented <strong>quasi-experimental engines</strong> (Synthetic Control Method with SLSQP weight optimization, 2x2 & TWFE Difference-in-Differences event study panel models) and multi-layer sensitivity analysis (Rosenbaum bounds, Cinelli-Hazlett, E-values).</li>
+          <li>Shipped an <strong>interactive zero-code Streamlit web dashboard</strong> (`causal-toolkit app`) and automated executive HTML report generator with custom causal graph and TIPS contour visualizers.</li>
         </ul>
       </div>
 

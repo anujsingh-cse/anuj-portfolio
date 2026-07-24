@@ -20,6 +20,7 @@ export const skills: Skill[] = [
   { name: "LangChain", icon: "langchain", category: "ai-ml", proficiency: 80 },
   { name: "PyTorch", icon: "pytorch", category: "ai-ml", proficiency: 65, currentlyLearning: true },
   { name: "Vector DBs (Pinecone)", icon: "database", category: "ai-ml", proficiency: 85 },
+  { name: "Causal Inference (DoWhy, EconML)", icon: "python", category: "ai-ml", proficiency: 85 },
 
   // DevOps
   { name: "AWS", icon: "amazonaws", category: "devops", proficiency: 75 },
