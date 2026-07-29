@@ -49,8 +49,7 @@ export const experience: Experience[] = [
     startDate: "2022-10",
     endDate: "2026-05",
     highlights: [
-      "Published research paper on 'Efficient LLM Fine-Tuning' → cited 15+ times by other researchers.",
-      "Developed the university's official student portal used by 4,000+ active students daily."
+      "Published research paper on 'Efficient LLM Fine-Tuning' → cited 15+ times by other researchers."
     ],
   }
 ];
