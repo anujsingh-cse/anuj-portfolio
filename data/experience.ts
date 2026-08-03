@@ -15,6 +15,21 @@ export const experience: Experience[] = [
     ],
   },
   {
+    id: "6",
+    type: "work",
+    title: "Data Science Intern",
+    organization: "Thiranex",
+    description: "Completed a focused Data Science internship applying machine learning, statistical modeling, and data analysis to real-world projects.",
+    startDate: "2026-07",
+    endDate: "2026-08",
+    highlights: [
+      "Built and deployed predictive analytics models using Python (Pandas, Scikit-learn, NumPy) to extract actionable insights from structured and unstructured datasets.",
+      "Performed exploratory data analysis (EDA), feature engineering, and data preprocessing pipelines, improving model accuracy by 18%.",
+      "Developed end-to-end machine learning workflows including data collection, cleaning, model training, hyperparameter tuning, and evaluation using cross-validation.",
+      "Created interactive data visualizations and dashboards (Matplotlib, Seaborn) to communicate findings to stakeholders.",
+    ],
+  },
+  {
     id: "3",
     type: "work",
     title: "Data Analyst",
